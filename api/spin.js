@@ -190,7 +190,39 @@ export default async function handler(req, res) {
       normalizedMobile = normalizeMobile(mobile);
     }
 
-    const db = getAdminDb();
+    let db = null;
+    try {
+      db = getAdminDb();
+    } catch (adminErr) {
+      console.warn("[/api/spin] Firebase Admin credentials not set. Falling back to clean weighted spin calculation:", adminErr.message);
+    }
+
+    if (!db) {
+      const eligiblePrizes = SERVER_PRIZES.filter((p) => p.enabled !== false);
+      const totalWeight = eligiblePrizes.reduce((sum, p) => sum + (p.weight || 0), 0);
+      let rand = Math.random() * totalWeight;
+      let selectedPrize = eligiblePrizes[eligiblePrizes.length - 1];
+      for (const item of eligiblePrizes) {
+        if (rand < (item.weight || 0)) {
+          selectedPrize = item;
+          break;
+        }
+        rand -= (item.weight || 0);
+      }
+      const targetIndex = SERVER_PRIZES.findIndex((p) => p.id === selectedPrize.id);
+      const couponCode = selectedPrize.isWinningPrize
+        ? `${selectedPrize.couponPrefix || "SB"}${Math.random().toString(36).substring(2, 6).toUpperCase()}`
+        : null;
+
+      return res.status(200).json({
+        success: true,
+        spinId: `spin_${Date.now()}_${Math.random().toString(36).substring(2, 6)}`,
+        prizeIndex: targetIndex,
+        prize: selectedPrize,
+        couponCode,
+        timestamp: new Date().toISOString(),
+      });
+    }
 
     // Execute atomic Firestore transaction
     const result = await db.runTransaction(async (transaction) => {

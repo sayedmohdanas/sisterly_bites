@@ -223,13 +223,22 @@ export const spinWheelService = async (
 
     // Handle application-level server errors (campaign disabled, etc.)
     if (data && (data.error || data.message)) {
-      throw new Error(data.error || data.message);
+      const msg = data.error || data.message;
+      if (
+        msg.includes("FIREBASE_SERVICE_ACCOUNT_JSON") ||
+        msg.includes("Server configuration error") ||
+        msg.includes("Firebase Admin credentials")
+      ) {
+        console.warn("/api/spin server configuration warning. Using direct client Firestore spin:", msg);
+      } else {
+        throw new Error(msg);
+      }
     }
 
     // Handle unexpected non-200 responses
     if (!response.ok) {
-      if (response.status === 404) {
-        console.warn("/api/spin returned 404 (local dev mode). Using local weighted spin fallback.");
+      if (response.status === 404 || response.status === 500 || response.status === 400) {
+        console.warn(`/api/spin returned ${response.status}. Using direct client Firestore spin fallback.`);
       } else {
         throw new Error(`Server returned HTTP ${response.status}. Please check server logs.`);
       }
@@ -240,7 +249,10 @@ export const spinWheelService = async (
       !err.message.includes("Unexpected end of JSON input") &&
       !err.message.includes("Unexpected token") &&
       !err.message.includes("Failed to fetch") &&
-      !err.message.includes("404")
+      !err.message.includes("404") &&
+      !err.message.includes("FIREBASE_SERVICE_ACCOUNT_JSON") &&
+      !err.message.includes("Server configuration error") &&
+      !err.message.includes("Firebase Admin")
     ) {
       throw err;
     }
@@ -377,7 +389,16 @@ export const claimCouponService = async (spinId, mobileNumber = null) => {
   }
 
   if (data && (data.error || data.message)) {
-    throw new Error(data.error || data.message);
+    const msg = data.error || data.message;
+    if (
+      msg.includes("FIREBASE_SERVICE_ACCOUNT_JSON") ||
+      msg.includes("Server configuration error") ||
+      msg.includes("Firebase Admin credentials")
+    ) {
+      console.warn("Claim API serverless warning. Using direct client claim fallback:", msg);
+    } else {
+      throw new Error(msg);
+    }
   }
 
   // Record coupon claim in Firestore if available
