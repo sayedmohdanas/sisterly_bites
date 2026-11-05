@@ -80,7 +80,7 @@ export const checkSpinEligibility = async (mobile, campaignConfig = DEFAULT_CAMP
   // Fallback to local storage cache if Firestore read failed or offline
   if (spinRecords.length === 0) {
     try {
-      const localSpinRaw = localStorage.getItem(`zukas_spin_${normalizedMobile}`);
+      const localSpinRaw = localStorage.getItem(`sisterly_spin_${normalizedMobile}`) || localStorage.getItem(`zukas_spin_${normalizedMobile}`);
       if (localSpinRaw) {
         const localData = JSON.parse(localSpinRaw);
         spinRecords.push({

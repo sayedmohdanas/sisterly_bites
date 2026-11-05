@@ -3,7 +3,7 @@ import { doc, getDoc, collection, getDocs, setDoc, serverTimestamp } from "fireb
 import localPrizes from "../data/prizes.js";
 
 /**
- * Default fallback prize definitions matching the approved Zukas Kitchen 6-segment configuration.
+ * Default fallback prize definitions matching the approved Sisterly Bites configuration.
  */
 export const DEFAULT_PRIZES = localPrizes;
 

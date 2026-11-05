@@ -19,7 +19,7 @@ const findServiceAccountKey = () => {
     if (fs.existsSync(candidate)) return candidate;
   }
 
-  // Look for any file matching *-service-account*.json or zukas-*.json in root
+  // Look for any file matching *-service-account*.json or sisterly-*.json in root
   try {
     const files = fs.readdirSync(rootDir);
     const keyFile = files.find(f => (f.includes("service-account") || f.includes("firebase-adminsdk")) && f.endsWith(".json"));

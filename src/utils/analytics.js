@@ -1,5 +1,5 @@
 /**
- * Analytics tracking interface for Zukas Kitchen Spin & Win campaign.
+ * Analytics tracking interface for Sisterly Bites Spin & Win campaign.
  * 
  * Functions here act as placeholder boundaries so Google Analytics, Mixpanel,
  * Meta Pixel, or custom backend event tracking can be wired easily without modifying component logic.

@@ -27,7 +27,7 @@ export default function NameInputForm({
 
       <div className={`mobile-input-wrapper ${error ? "input-has-error" : ""}`}>
         <div className="country-code-badge" style={{ gap: "6px" }}>
-          <User size={18} className="text-zukas-green" style={{ color: "#198C09" }} />
+          <User size={18} className="text-primary" style={{ color: "var(--primary, #E63946)" }} />
         </div>
 
         <input

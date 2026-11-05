@@ -1,6 +1,6 @@
 {
   "name": "functions",
-  "description": "Zukas Kitchen Spin & Win Cloud Functions",
+  "description": "Sisterly Bites Spin & Win Cloud Functions",
   "main": "index.js",
   "dependencies": {
     "firebase-admin": "^12.6.0",

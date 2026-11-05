@@ -182,7 +182,7 @@ export default function MenuSection({ activeOffer, villagesList = [] }) {
               </div>
               <img
                 src={menuHeader.posterImage}
-                alt="Zukas Kitchen Menu Poster"
+                alt="Sisterly Bites Menu Poster"
                 className="menu-poster-img"
               />
             </div>
@@ -197,7 +197,7 @@ export default function MenuSection({ activeOffer, villagesList = [] }) {
           <div className="banner-left">
             <ShoppingBag size={28} className="shopping-bag-icon" />
             <div>
-              <h4>Ready to enjoy delicious pizza?</h4>
+              <h4>Ready to enjoy delicious food?</h4>
               <p>Order directly on WhatsApp for fast delivery!</p>
             </div>
           </div>
@@ -220,7 +220,7 @@ export default function MenuSection({ activeOffer, villagesList = [] }) {
         >
           <div className="poster-modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="poster-modal-header">
-              <h3>Zukas Kitchen Official Menu</h3>
+              <h3>Sisterly Bites Official Menu</h3>
               <button
                 type="button"
                 className="close-poster-btn"
@@ -234,7 +234,7 @@ export default function MenuSection({ activeOffer, villagesList = [] }) {
             <div className="poster-modal-body">
               <img
                 src={menuHeader.posterImage}
-                alt="Zukas Kitchen Full Menu Poster"
+                alt="Sisterly Bites Full Menu Poster"
                 className="modal-poster-img"
               />
             </div>

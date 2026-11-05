@@ -1,6 +1,6 @@
-# Zukas Kitchen Spin & Win — Firebase Integration & Admin Setup Guide
+# Sisterly Bites Spin & Win — Firebase Integration & Admin Setup Guide
 
-This document explains the Firebase Cloud Firestore integration, environment variable configuration, Firestore schema, campaign management controls, repeat-spin cooldown rules, security model, and Vercel deployment workflow for **Zukas Kitchen Spin & Win**.
+This document explains the Firebase Cloud Firestore integration, environment variable configuration, Firestore schema, campaign management controls, repeat-spin cooldown rules, security model, and Vercel deployment workflow for **Sisterly Bites Spin & Win**.
 
 ---
 

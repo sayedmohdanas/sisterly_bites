@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import defaultPrizes from "../data/prizes";
 import { soundFx } from "../utils/sound";
-import zukasLogo from "../assets/zukasKirchenlogo.jpg";
+import sisterlyLogo from "../assets/sisterly_bites_logo.jpg";
 
 const SPIN_DURATION_MS = 8500; // 8.5 seconds (within 8-10s target)
 
@@ -253,9 +253,9 @@ export default function Spinner({
           </svg>
         </div>
 
-        {/* Center Zukas Kitchen Emblem Hub */}
+        {/* Center Sisterly Bites Emblem Hub */}
         <div className="wheel-center-hub">
-          <img src={zukasLogo} alt="Zukas Kitchen Logo" className="hub-logo-image" />
+          <img src={sisterlyLogo} alt="Sisterly Bites Logo" className="hub-logo-image" />
         </div>
       </div>
 

@@ -4,7 +4,7 @@ import Hero from "./components/Hero";
 import MenuSection from "./components/MenuSection";
 import HowItWorks from "./components/HowItWorks";
 import PromoBanner from "./components/PromoBanner";
-import WhyZukas from "./components/WhyZukas";
+import WhySisterlyBites from "./components/WhySisterlyBites";
 import ReviewsSection from "./components/ReviewsSection";
 import FinalCTA from "./components/FinalCTA";
 import ResultModal from "./components/ResultModal";
@@ -175,7 +175,7 @@ export default function App() {
         <PromoBanner />
 
         {/* Why Sisterly Bites Section */}
-        <WhyZukas />
+        <WhySisterlyBites />
 
         {/* Final CTA Section */}
         <FinalCTA

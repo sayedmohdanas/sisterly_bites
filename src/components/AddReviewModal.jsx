@@ -49,7 +49,7 @@ const AddReviewModal = ({ isOpen, onClose, onReviewAdded, villagesList = [] }) =
         <div className="review-form-header">
           <MessageSquareHeart size={32} className="review-form-icon" />
           <h2>Write a Review</h2>
-          <p>We'd love to hear about your experience with Zukas Kitchen!</p>
+          <p>We'd love to hear about your experience with Sisterly Bites!</p>
         </div>
 
         <form onSubmit={handleSubmit} className="review-form">

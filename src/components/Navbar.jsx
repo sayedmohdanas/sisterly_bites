@@ -81,7 +81,7 @@ export default function Navbar() {
           <button onClick={() => handleNavClick("promo", "Offers")} className="nav-link">
             Offers
           </button>
-          <button onClick={() => handleNavClick("why-zukas", "Why Us")} className="nav-link">
+          <button onClick={() => handleNavClick("why-sisterly-bites", "Why Us")} className="nav-link">
             Why Us
           </button>
           <button onClick={() => handleNavClick("footer", "Contact")} className="nav-link">
@@ -173,7 +173,7 @@ export default function Navbar() {
               <button onClick={() => handleNavClick("promo", "Offers")} className="mobile-nav-link">
                 Offers
               </button>
-              <button onClick={() => handleNavClick("why-zukas", "Why Us")} className="mobile-nav-link">
+              <button onClick={() => handleNavClick("why-sisterly-bites", "Why Us")} className="mobile-nav-link">
                 Why Sisterly Bites
               </button>
               <button onClick={() => handleNavClick("footer", "Contact")} className="mobile-nav-link">

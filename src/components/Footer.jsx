@@ -64,7 +64,7 @@ export default function Footer({ onOpenTerms }) {
                 <button onClick={() => scrollToSection("promo")}>Offers & Menu</button>
               </li>
               <li>
-                <button onClick={() => scrollToSection("why-zukas")}>Why Sisterly Bites</button>
+                <button onClick={() => scrollToSection("why-sisterly-bites")}>Why Sisterly Bites</button>
               </li>
             </ul>
           </div>
