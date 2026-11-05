@@ -30,7 +30,7 @@ async function addSamples() {
   // Sample order
   await addDoc(collection(db, "orders"), {
     customerName: "Afzal Jamal",
-    contactNumber: "7007130132",
+    contactNumber: "9026068859",
     deliveryAddress: "Mirza Hadi Pura, Mau",
     landmark: "Near Chowk",
     items: [
