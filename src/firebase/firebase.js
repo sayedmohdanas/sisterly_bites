@@ -7,9 +7,9 @@ const env = (typeof import.meta !== "undefined" && import.meta.env) ? import.met
 
 const firebaseConfig = {
   apiKey: env.VITE_FIREBASE_API_KEY || "",
-  authDomain: env.VITE_FIREBASE_AUTH_DOMAIN || "zukas-kitchen-spin-win.firebaseapp.com",
-  projectId: env.VITE_FIREBASE_PROJECT_ID || "zukas-kitchen-spin-win",
-  storageBucket: env.VITE_FIREBASE_STORAGE_BUCKET || "zukas-kitchen-spin-win.firebasestorage.app",
+  authDomain: env.VITE_FIREBASE_AUTH_DOMAIN || "sisterlybites-94628.firebaseapp.com",
+  projectId: env.VITE_FIREBASE_PROJECT_ID || "sisterlybites-94628",
+  storageBucket: env.VITE_FIREBASE_STORAGE_BUCKET || "sisterlybites-94628.firebasestorage.app",
   messagingSenderId: env.VITE_FIREBASE_MESSAGING_SENDER_ID || "",
   appId: env.VITE_FIREBASE_APP_ID || ""
 };

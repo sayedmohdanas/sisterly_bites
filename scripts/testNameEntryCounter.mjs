@@ -16,7 +16,7 @@ function getAdminDb() {
   const sa = JSON.parse(fs.readFileSync(keyPath, "utf8"));
   const app = initializeApp({
     credential: cert(sa),
-    projectId: sa.project_id || "zukas-kitchen-spin-win",
+    projectId: sa.project_id || "sisterlybites-94628",
   });
   return getFirestore(app);
 }

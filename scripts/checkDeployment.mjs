@@ -3,9 +3,9 @@ import { getFunctions, httpsCallable } from "firebase/functions";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDqw_UkQTR1epTomT_-IQLE7M_1jc2_sb4",
-  authDomain: "zukas-kitchen-spin-win.firebaseapp.com",
-  projectId: "zukas-kitchen-spin-win",
-  storageBucket: "zukas-kitchen-spin-win.firebasestorage.app",
+  authDomain: "sisterlybites-94628.firebaseapp.com",
+  projectId: "sisterlybites-94628",
+  storageBucket: "sisterlybites-94628.firebasestorage.app",
   messagingSenderId: "203850913566",
   appId: "1:203850913566:web:86196521d40d4accf45b0f"
 };

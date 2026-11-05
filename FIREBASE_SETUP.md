@@ -6,7 +6,7 @@ This document explains the Firebase Cloud Firestore integration, environment var
 
 ## 1. Firebase Project Overview
 
-- **Project Name**: `zukas-kitchen-spin-win`
+- **Project Name**: `sisterlybites-94628`
 - **Firebase Services**: Firebase Web SDK v12, Firebase Admin SDK v14, Cloud Firestore
 - **Deployment Platform**: Vercel (Frontend Client App)
 
@@ -28,9 +28,9 @@ Fill in your client SDK keys from **Firebase Console → Project Settings → We
 
 ```env
 VITE_FIREBASE_API_KEY=your_firebase_api_key_here
-VITE_FIREBASE_AUTH_DOMAIN=zukas-kitchen-spin-win.firebaseapp.com
-VITE_FIREBASE_PROJECT_ID=zukas-kitchen-spin-win
-VITE_FIREBASE_STORAGE_BUCKET=zukas-kitchen-spin-win.firebasestorage.app
+VITE_FIREBASE_AUTH_DOMAIN=sisterlybites-94628.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=sisterlybites-94628
+VITE_FIREBASE_STORAGE_BUCKET=sisterlybites-94628.firebasestorage.app
 VITE_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
 VITE_FIREBASE_APP_ID=1:your_app_id_here
 ```

@@ -3,7 +3,7 @@ import { getFirestore, FieldValue } from "firebase-admin/firestore";
 import fs from "fs";
 import path from "path";
 
-const EXPECTED_PROJECT_ID = "zukas-kitchen-spin-win";
+const EXPECTED_PROJECT_ID = "sisterlybites-94628";
 
 /**
  * Safely initializes Firebase Admin SDK in Vercel Serverless runtime.
