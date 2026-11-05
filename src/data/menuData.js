@@ -5,6 +5,7 @@ import loadedFriesImg from "../assets/items/loaded_fries.jpg";
 import chickenZingerBurgerImg from "../assets/items/chicken_zinger_burger.jpg";
 import chickenPopcornImg from "../assets/items/chicken_popcorn.jpg";
 import malaiChickenTikkaImg from "../assets/items/malai_chicken_tikka.jpg";
+import biryaniImg from "../assets/items/biryani.jpg";
 
 export const menuHeader = {
   title: "Sisterly Bites Cloud Kitchen",
@@ -87,6 +88,19 @@ export const pizzaMenuItems = [
     isVeg: false,
     category: "chicken",
     image: malaiChickenTikkaImg,
+    price: 70,
+    prices: {
+      half: 70,
+      full: 120,
+    },
+  },
+  {
+    id: "chicken-biryani",
+    name: "Chicken Biryani",
+    description: "Aromatic basmati rice cooked with succulent spiced chicken, caramelized onions & authentic herbs",
+    isVeg: false,
+    category: "biryani",
+    image: biryaniImg,
     price: 70,
     prices: {
       half: 70,

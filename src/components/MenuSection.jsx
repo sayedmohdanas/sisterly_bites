@@ -17,6 +17,7 @@ export default function MenuSection({ activeOffer, villagesList = [] }) {
     "burger-zinger": "regular",
     "chicken-popcorn": "portion",
     "malai-chicken-tikka": "half",
+    "chicken-biryani": "half",
   });
 
   const handleSizeChange = (id, size) => {

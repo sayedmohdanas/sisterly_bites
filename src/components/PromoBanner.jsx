@@ -50,7 +50,7 @@ export default function PromoBanner() {
                 </div>
                 <div className="highlight-pill">
                   <Star size={16} fill="#FFD700" color="#FFD700" />
-                  <span>Creamy Malai Chicken Tikka</span>
+                  <span>Aromatic Chicken Biryani</span>
                 </div>
               </div>
 

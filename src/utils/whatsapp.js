@@ -96,12 +96,13 @@ export const getWhatsAppPizzaOrderLink = ({
     const formattedItems = items
       .map((it, idx) => {
         const isTikka = String(it.name || "").toLowerCase().includes("tikka");
+        const isBiryani = String(it.name || "").toLowerCase().includes("biryani");
         const isFries = String(it.name || "").toLowerCase().includes("fries");
         const isBurger = String(it.name || "").toLowerCase().includes("burger");
-        const icon = isFries ? "🍟" : (isBurger ? "🍔" : (isTikka ? "🍗" : "✨"));
+        const icon = isFries ? "🍟" : (isBurger ? "🍔" : (isBiryani ? "🍲" : (isTikka ? "🍗" : "✨")));
 
         let sizeText = "";
-        if (isTikka && it.size) {
+        if ((isTikka || isBiryani) && it.size) {
           sizeText = `\n   Portion: ${it.size.charAt(0).toUpperCase() + it.size.slice(1)}`;
         }
 
@@ -124,11 +125,13 @@ export const getWhatsAppPizzaOrderLink = ({
 
   // Single-item fallback
   const isTikka = String(pizzaName).toLowerCase().includes("tikka");
+  const isBiryani = String(pizzaName).toLowerCase().includes("biryani");
   const isFries = String(pizzaName).toLowerCase().includes("fries");
   const isBurger = String(pizzaName).toLowerCase().includes("burger");
-  const icon = isFries ? "🍟" : (isBurger ? "🍔" : (isTikka ? "🍗" : "✨"));
+  const icon = isFries ? "🍟" : (isBurger ? "🍔" : (isBiryani ? "🍲" : (isTikka ? "🍗" : "✨")));
 
-  const sizeLabel = isTikka && size ? `Portion: ${size.charAt(0).toUpperCase() + size.slice(1)}\n` : "";
+  const isPortioned = isTikka || isBiryani;
+  const sizeLabel = isPortioned && size ? `Portion: ${size.charAt(0).toUpperCase() + size.slice(1)}\n` : "";
   const safeQty = Math.max(1, Number(quantity) || 1);
   const extraDipText = hasExtraCheese
     ? (safeQty > 1 ? `Yes (+₹${extraCheesePrice * safeQty})` : `Yes (+₹${extraCheesePrice})`)

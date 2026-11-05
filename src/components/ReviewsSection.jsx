@@ -26,7 +26,7 @@ const fallbackReviews = [
     village: "Bindwal",
     date: "1 weeks ago",
     rating: 5,
-    text: "Super hot when it arrived. The Malai Chicken Tikka is tender and flavorful. Highly recommend Sisterly Bites!",
+    text: "Super hot when it arrived. The Chicken Biryani is aromatic with tender juicy chicken, and the fries are top notch. Highly recommend Sisterly Bites!",
   }
 ];
 
