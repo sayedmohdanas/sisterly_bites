@@ -22,7 +22,7 @@ const fallbackReviews = [
   },
   {
     id: "fallback-3",
-    name: "Mohd Anas",
+    name: "Afzal Jamal",
     village: "Domanpura",
     date: "1 week ago",
     rating: 5,

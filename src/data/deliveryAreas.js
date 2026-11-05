@@ -18,3 +18,4 @@ export const DEFAULT_DELIVERY_AREAS = [
 ];
 
 export const PREFERRED_DELIVERY_ORDER = DEFAULT_DELIVERY_AREAS.map(a => a.name.toLowerCase());
+

@@ -62,7 +62,7 @@ const AddReviewModal = ({ isOpen, onClose, onReviewAdded, villagesList = [] }) =
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="e.g. Mohd Anas"
+              placeholder="e.g. Afzal Jamal"
               disabled={isSubmitting}
               maxLength={30}
               required

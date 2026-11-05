@@ -164,7 +164,7 @@ async function seedAdminData() {
   console.log("📌 Seeding sample customer review in collection: reviews");
   const reviewRef = db.collection("reviews").doc();
   await reviewRef.set({
-    name: "Mohd Anas",
+    name: "Afzal Jamal",
     village: "Mirza Hadi Pura",
     rating: 5,
     text: "Crispy fries, juicy zinger burger and aromatic biryani! Super fast delivery in Mau.",
