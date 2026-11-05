@@ -11,7 +11,7 @@ export const menuHeader = {
   title: "Sisterly Bites Cloud Kitchen",
   openingTime: "Daily: 1 PM - 10:30 PM",
   tagline: "HOMEMADE GOODNESS, ALWAYS ♡",
-  phone: "9194130132",
+  phone: "7007130132",
   posterImage: sisterlyMenuPoster,
 };
 
