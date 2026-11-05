@@ -135,6 +135,40 @@ async function seedAdminData() {
     console.log(`   ✓ Seeded prize: prizes/${id} (${prize.name} - Weight: ${prize.weight})`);
   }
 
+  // 3. Seed delivery villages
+  const defaultVillages = [
+    "Khankah",
+    "Bindwal",
+    "Jairajpur",
+    "Jagmalpur",
+    "Hari Pur",
+    "Alauddin Patti",
+    "Gulwa Gauri",
+    "Naseer Pur"
+  ];
+  console.log(`📌 Seeding ${defaultVillages.length} delivery areas in collection: villages`);
+  for (const villageName of defaultVillages) {
+    const villageRef = db.collection("villages").doc();
+    await villageRef.set({
+      name: villageName,
+      active: true,
+      createdAt: FieldValue.serverTimestamp(),
+    });
+    console.log(`   ✓ Seeded village: ${villageName}`);
+  }
+
+  // 4. Seed initial review
+  console.log("📌 Seeding sample customer review in collection: reviews");
+  const reviewRef = db.collection("reviews").doc();
+  await reviewRef.set({
+    name: "Mohd Anas",
+    village: "Khankah",
+    rating: 5,
+    text: "Delicious food, great offers, and super quick delivery!",
+    createdAt: FieldValue.serverTimestamp(),
+  });
+  console.log("   ✓ Seeded sample review");
+
   console.log("✅ Firestore database seeding via Firebase Admin SDK completed successfully!");
   process.exit(0);
 }
