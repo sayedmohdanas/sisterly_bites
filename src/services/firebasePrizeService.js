@@ -51,7 +51,12 @@ export const fetchCampaignConfig = async () => {
         fromFirebase: true,
       };
     } else {
-      console.info("Firestore campaign/spin_and_win document not found. Using default config.");
+      console.info("Firestore campaigns/spin_and_win document not found. Auto-seeding initial Sisterly Bites database collections...");
+      try {
+        await seedFirestoreDefaults();
+      } catch (seedErr) {
+        console.warn("Auto-seeding could not complete (rules may restrict write):", seedErr.message);
+      }
       return { ...DEFAULT_CAMPAIGN_CONFIG, fromFirebase: false };
     }
   } catch (err) {

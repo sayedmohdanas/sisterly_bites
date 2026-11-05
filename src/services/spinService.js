@@ -1,5 +1,5 @@
 import { db, functions } from "../firebase/firebase.js";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query, where, getDocs, addDoc, serverTimestamp } from "firebase/firestore";
 import { httpsCallable } from "firebase/functions";
 import localPrizes from "../data/prizes.js";
 import { DEFAULT_CAMPAIGN_CONFIG } from "./firebasePrizeService.js";
@@ -265,11 +265,34 @@ export const spinWheelService = async (
 
   const actualPrizeIndex = selectedItem.originalIndex;
   const couponPrefix = selectedItem.couponPrefix || "SB";
-  const couponCode = selectedItem.isWinningPrize ? `${couponPrefix}DEMO` : null;
+  const randomSuffix = Math.random().toString(36).substring(2, 6).toUpperCase();
+  const couponCode = selectedItem.isWinningPrize ? `${couponPrefix}${randomSuffix}` : null;
+  const spinId = `sb_${Date.now()}_${Math.random().toString(36).substring(2, 6)}`;
+  const prizeObj = availablePrizes[actualPrizeIndex];
+
+  // Record spin directly into Firestore 'spins' collection
+  if (db) {
+    try {
+      const spinsRef = collection(db, "spins");
+      await addDoc(spinsRef, {
+        spinId,
+        userName: trimmedName,
+        prizeId: prizeObj.id,
+        prizeName: prizeObj.name || prizeObj.label,
+        couponCode: couponCode,
+        isWinning: Boolean(prizeObj.isWinningPrize),
+        createdAt: serverTimestamp(),
+        timestamp: new Date().toISOString(),
+      });
+      console.log("✓ Spin saved to Firestore 'spins' collection:", spinId);
+    } catch (fsErr) {
+      console.warn("Could not write spin to Firestore:", fsErr.message);
+    }
+  }
 
   return {
-    spinId: `local_${Date.now()}`,
-    prize: availablePrizes[actualPrizeIndex],
+    spinId,
+    prize: prizeObj,
     prizeIndex: actualPrizeIndex,
     couponCode,
     timestamp: new Date().toISOString(),
@@ -357,7 +380,22 @@ export const claimCouponService = async (spinId, mobileNumber = null) => {
     throw new Error(data.error || data.message);
   }
 
-  // Fallback success for local dev testing
+  // Record coupon claim in Firestore if available
+  if (db && normalizedMobile) {
+    try {
+      const claimsRef = collection(db, "claims");
+      addDoc(claimsRef, {
+        spinId: spinId || `sb_${Date.now()}`,
+        mobile: normalizedMobile,
+        couponCode: "SB10",
+        prizeName: "₹10 OFF",
+        claimedAt: serverTimestamp(),
+      }).catch((e) => console.warn("Firestore claim write warning:", e.message));
+    } catch (fsErr) {
+      console.warn("Could not write claim to Firestore:", fsErr.message);
+    }
+  }
+
   return {
     success: true,
     spinId: spinId || `local_${Date.now()}`,

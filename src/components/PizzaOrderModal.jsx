@@ -19,6 +19,8 @@ import { trackEvent } from "../utils/analytics";
 import LocationPickerMap from "./LocationPickerMap";
 import { pizzaMenuItems } from "../data/menuData";
 import { DEFAULT_DELIVERY_AREAS } from "../data/deliveryAreas";
+import { db } from "../firebase/firebase.js";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 export default function PizzaOrderModal({
   pizza,
@@ -265,6 +267,36 @@ export default function PizzaOrderModal({
       hasAddress: Boolean(deliveryAddress.trim()),
       hasLocation: Boolean(locationUrl.trim()),
     });
+
+    // Record order in Firestore orders collection
+    if (db) {
+      try {
+        const ordersRef = collection(db, "orders");
+        addDoc(ordersRef, {
+          customerName: customerName.trim() || "Anonymous",
+          contactNumber: contactNumber.trim() || "",
+          deliveryAddress: deliveryAddress.trim() || "",
+          landmark: landmark.trim() || "",
+          locationUrl: locationUrl || "",
+          items: orderItems.map((item) => ({
+            id: item.id,
+            name: item.name,
+            size: item.size || null,
+            quantity: item.quantity || 1,
+            basePrice: item.basePrice,
+          })),
+          totalPrice: grandTotalPrice,
+          activeOffer: activeOffer ? {
+            prizeName: activeOffer.prizeName,
+            couponCode: activeOffer.couponCode,
+          } : null,
+          status: "sent_to_whatsapp",
+          createdAt: serverTimestamp(),
+        }).catch((err) => console.warn("Firestore order log warning:", err.message));
+      } catch (err) {
+        console.warn("Could not initiate Firestore order log:", err.message);
+      }
+    }
 
     const link = getWhatsAppPizzaOrderLink({
       items: orderItems,
