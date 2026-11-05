@@ -70,13 +70,13 @@ const AddReviewModal = ({ isOpen, onClose, onReviewAdded, villagesList = [] }) =
           </div>
 
           <div className="form-group">
-            <label>Your Village</label>
+            <label>Your Address</label>
             <input
               type="text"
               list="review-villages-list"
               value={village}
               onChange={(e) => setVillage(e.target.value)}
-              placeholder="Select or type your village/area..."
+              placeholder="Select or type your address / area..."
               disabled={isSubmitting}
               maxLength={40}
             />
