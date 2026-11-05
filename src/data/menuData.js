@@ -110,11 +110,11 @@ export const pizzaMenuItems = [
 ];
 
 export const extraAddons = [
-  {
-    id: "extra-cheese-dip",
-    name: "Extra Cheese Dip",
-    price: 20,
-  },
+  // {
+  //   id: "extra-cheese-dip",
+  //   name: "Extra Cheese Dip",
+  //   price: 20,
+  // },
   {
     id: "extra-peri-peri",
     name: "Peri Peri Seasoning",

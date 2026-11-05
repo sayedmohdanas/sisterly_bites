@@ -40,7 +40,8 @@ export default function Footer({ onOpenTerms }) {
               Sisterly Bites Cloud Kitchen brings you golden crispy fries, loaded specials, crunchy chicken zinger burgers, popcorn chicken, and tender malai chicken tikka made with love. Order directly on WhatsApp or join our Spin & Win campaign today!
             </p>
 
-            {/* FSSAI Badge */}
+            {/* FSSAI Badge (Commented out per request - do not delete) */}
+            {/*
             <div className="fssai-badge-card">
               <ShieldCheck className="fssai-icon" size={20} />
               <div className="fssai-details">
@@ -48,6 +49,7 @@ export default function Footer({ onOpenTerms }) {
                 <span className="fssai-lic">{config.fssaiLicNo}</span>
               </div>
             </div>
+            */}
           </div>
 
           {/* Quick Links */}
@@ -82,9 +84,11 @@ export default function Footer({ onOpenTerms }) {
               <li>
                 <button onClick={onOpenTerms}>Spin & Win Rules</button>
               </li>
+              {/*
               <li>
                 <button onClick={onOpenTerms}>FSSAI License Info</button>
               </li>
+              */}
             </ul>
           </div>
 

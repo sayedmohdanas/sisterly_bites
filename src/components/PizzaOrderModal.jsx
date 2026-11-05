@@ -382,7 +382,8 @@ export default function PizzaOrderModal({
                       </div>
                     )}
 
-                    {/* Extra Cheese Dip Option */}
+                    {/* Extra Cheese Dip Option (Commented out per request - do not delete) */}
+                    {/*
                     <div
                       className={`order-item-cheese-toggle ${item.hasExtraCheese ? "checked" : ""}`}
                       onClick={() => handleItemExtraCheeseToggle(item.id)}
@@ -399,6 +400,7 @@ export default function PizzaOrderModal({
                         <span className="addon-tag">+₹{extraCheesePrice}</span>
                       </label>
                     </div>
+                    */}
 
                     {/* Bottom Row: Quantity Stepper & Subtotal */}
                     <div className="order-item-card-bottom">
