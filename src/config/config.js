@@ -1,15 +1,15 @@
-// Zukas Kitchen Spin & Win Configuration
+// Sisterly Bites Spin & Win Configuration
 export const config = {
-  brandName: "Zukas Kitchen",
-  tagline: "Good Food Happier People ❤️",
+  brandName: "Sisterly Bites",
+  tagline: "Homemade Goodness, Always ♡",
   campaignName: "Spin & Win",
 
   whatsappNumber: "919194130132",
-  instagramUrl: "https://www.instagram.com/zukas.kitchen",
+  instagramUrl: "https://www.instagram.com/sisterlybites",
 
   fssaiLicNo: "FSSAI Lic. No. 22726171000862",
   supportPhone: "+91 9194130132",
-  supportEmail: "zukaskitchen@gmail.com",
+  supportEmail: "sisterlybites@gmail.com",
 
-  primaryColor: "#198C09",
+  primaryColor: "#E63946",
 };

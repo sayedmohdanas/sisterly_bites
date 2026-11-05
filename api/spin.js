@@ -122,15 +122,15 @@ function getAdminDb() {
   return getFirestore(app);
 }
 
-// Server-approved 6 prizes with exact probability weights
+// Server-approved 7 prizes with exact probability weights for Sisterly Bites
 const SERVER_PRIZES = [
-  { id: "25-off-2-medium-pizza", label: "₹25 OFF ON ORDER 2 MEDIUM PIZZA", wheelLabel: "₹25 OFF", subLabel: "ON ORDER 2 MEDIUM PIZZA", type: "discount", value: 25, weight: 10, enabled: true, isWinningPrize: true, couponPrefix: "ZUKAS25", bgColor: "#198C09", textColor: "#FFFFFF", badge: "2 PIZZA DEAL", accentColor: "#FFD700" },
-  { id: "10-off", label: "₹10 OFF", wheelLabel: "₹10 OFF", subLabel: "On Any Order", type: "discount", value: 10, weight: 55, enabled: true, isWinningPrize: true, couponPrefix: "ZUKAS10", bgColor: "#FF9F1C", textColor: "#1E293B", badge: "SAVINGS", accentColor: "#FFFFFF" },
-  { id: "20-off", label: "₹20 OFF", wheelLabel: "₹20 OFF", subLabel: "Instant Savings", type: "discount", value: 20, weight: 12, enabled: true, isWinningPrize: true, couponPrefix: "ZUKAS20", bgColor: "#FFB703", textColor: "#1E293B", badge: "BONUS", accentColor: "#198C09" },
+  { id: "25-off-combo", label: "₹25 OFF ON BURGER & FRIES COMBO", wheelLabel: "₹25 OFF", subLabel: "Burger & Fries Combo", type: "discount", value: 25, weight: 10, enabled: true, isWinningPrize: true, couponPrefix: "SB25", bgColor: "#E63946", textColor: "#FFFFFF", badge: "COMBO DEAL", accentColor: "#FFD700" },
+  { id: "10-off", label: "₹10 OFF", wheelLabel: "₹10 OFF", subLabel: "On Any Order", type: "discount", value: 10, weight: 50, enabled: true, isWinningPrize: true, couponPrefix: "SB10", bgColor: "#FF9F1C", textColor: "#1E293B", badge: "SAVINGS", accentColor: "#FFFFFF" },
+  { id: "20-off", label: "₹20 OFF", wheelLabel: "₹20 OFF", subLabel: "On Orders Above ₹199", type: "discount", value: 20, weight: 15, enabled: true, isWinningPrize: true, couponPrefix: "SB20", bgColor: "#FFB703", textColor: "#1E293B", badge: "BONUS", accentColor: "#E63946" },
   { id: "better-luck", label: "BETTER LUCK NEXT TIME", wheelLabel: "BETTER LUCK", subLabel: "NEXT TIME", type: "no_win", value: null, weight: 10, enabled: true, isWinningPrize: false, couponPrefix: null, bgColor: "#334155", textColor: "#F8FAFC", badge: "TRY AGAIN", accentColor: "#94A3B8" },
-  { id: "15-off", label: "₹15 OFF", wheelLabel: "₹15 OFF", subLabel: "Super Saver", type: "discount", value: 15, weight: 8, enabled: true, isWinningPrize: true, couponPrefix: "ZUKAS15", bgColor: "#2A9D8F", textColor: "#FFFFFF", badge: "BIG DEAL", accentColor: "#FFD700" },
-  { id: "30-off", label: "₹30 OFF ON ORDER 3 ANY MEDIUM PIZZA", wheelLabel: "₹30 OFF", subLabel: "ON ORDER 3 ANY MEDIUM PIZZA", type: "discount", value: 30, weight: 5, enabled: true, isWinningPrize: true, couponPrefix: "ZUKAS30", bgColor: "#F4A261", textColor: "#1E293B", badge: "YUMMY", accentColor: "#198C09" },
-  { id: "free-campa-10", label: "FREE CAMPA WORTH ₹10", wheelLabel: "FREE CAMPA", subLabel: "Worth ₹10", type: "freebie", value: 10, weight: 60, enabled: true, isWinningPrize: true, couponPrefix: "ZUKASCAMPA", bgColor: "#E63946", textColor: "#FFFFFF", badge: "FREE DRINK", accentColor: "#F1FAEE" }
+  { id: "15-off", label: "₹15 OFF", wheelLabel: "₹15 OFF", subLabel: "Super Saver", type: "discount", value: 15, weight: 10, enabled: true, isWinningPrize: true, couponPrefix: "SB15", bgColor: "#2A9D8F", textColor: "#FFFFFF", badge: "BIG DEAL", accentColor: "#FFD700" },
+  { id: "30-off-meal", label: "₹30 OFF ON ORDERS ABOVE ₹299", wheelLabel: "₹30 OFF", subLabel: "On Orders Above ₹299", type: "discount", value: 30, weight: 5, enabled: true, isWinningPrize: true, couponPrefix: "SB30", bgColor: "#F4A261", textColor: "#1E293B", badge: "YUMMY", accentColor: "#E63946" },
+  { id: "free-campa-10", label: "FREE DRINK WORTH ₹10", wheelLabel: "FREE DRINK", subLabel: "Worth ₹10", type: "freebie", value: 10, weight: 55, enabled: true, isWinningPrize: true, couponPrefix: "SBFREE", bgColor: "#D90429", textColor: "#FFFFFF", badge: "FREE DRINK", accentColor: "#F1FAEE" }
 ];
 
 function normalizeMobile(mobile) {

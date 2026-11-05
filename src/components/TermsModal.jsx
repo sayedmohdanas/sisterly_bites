@@ -10,8 +10,8 @@ export default function TermsModal({ isOpen, onClose }) {
     "Coupon codes generated during this promotional event are single-use only.",
     "Offers and discounts cannot be combined with other existing restaurant promotions or coupons.",
     "Coupon validity, expiration, and minimum order requirements are subject to campaign guidelines.",
-    "Zukas Kitchen reserves the right to modify, pause, or update campaign terms at its sole discretion.",
-    "Actual coupon eligibility, uniqueness, and redemption will be verified by the Zukas Kitchen backend system upon order checkout.",
+    "Sisterly Bites reserves the right to modify, pause, or update campaign terms at its sole discretion.",
+    "Actual coupon eligibility, uniqueness, and redemption will be verified by the Sisterly Bites backend system upon order checkout.",
   ];
 
   return (

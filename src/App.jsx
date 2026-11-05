@@ -162,7 +162,7 @@ export default function App() {
           villagesList={villagesList}
         />
 
-        {/* Zukas Kitchen Pizza Menu Section */}
+        {/* Sisterly Bites Menu Section */}
         <MenuSection activeOffer={activeOffer} villagesList={villagesList} />
 
         {/* Customer Reviews Section */}
@@ -174,7 +174,7 @@ export default function App() {
         {/* Promotional Food Banner */}
         <PromoBanner />
 
-        {/* Why Zukas Kitchen Section */}
+        {/* Why Sisterly Bites Section */}
         <WhyZukas />
 
         {/* Final CTA Section */}

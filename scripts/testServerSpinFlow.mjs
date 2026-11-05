@@ -45,8 +45,8 @@ function simulateServerSpin({ mobileInput, clientPayload = {}, spinHistory = [],
 
   // 5. Server Weighted Selection & Server Timestamp
   const serverTimestamp = new Date().toISOString();
-  const serverSelectedPrize = { id: "10-off", label: "₹10 OFF", couponPrefix: "ZUKAS10", isWinning: true };
-  const serverGeneratedCoupon = "ZUKAS10" + Math.random().toString(36).substring(2, 6).toUpperCase();
+  const serverSelectedPrize = { id: "10-off", label: "₹10 OFF", couponPrefix: "SB10", isWinning: true };
+  const serverGeneratedCoupon = "SB10" + Math.random().toString(36).substring(2, 6).toUpperCase();
 
   return {
     success: true,

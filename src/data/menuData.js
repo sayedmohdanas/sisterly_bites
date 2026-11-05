@@ -1,118 +1,114 @@
-import zukasMenuPoster from "../assets/zukas_menu_poster.jpg";
-import margheritaImg from "../assets/pizzas/margherita.jpg";
-import cheeseCornImg from "../assets/pizzas/cheese_corn.jpg";
-import vegPizzaImg from "../assets/pizzas/veg_pizza.jpg";
-import vegCheeseCornImg from "../assets/pizzas/veg_cheese_corn.jpg";
-import paneerTikkaImg from "../assets/pizzas/paneer_tikka.jpg";
-import chickenTikkaImg from "../assets/pizzas/chicken_tikka.jpg";
-import zingerBurgerImg from "../assets/zinger_burger.jpg";
+import sisterlyMenuPoster from "../assets/sisterly_bites_menu.jpg";
+import classicFriesImg from "../assets/items/classic_fries.jpg";
+import periPeriFriesImg from "../assets/items/peri_peri_fries.jpg";
+import loadedFriesImg from "../assets/items/loaded_fries.jpg";
+import chickenZingerBurgerImg from "../assets/items/chicken_zinger_burger.jpg";
+import chickenPopcornImg from "../assets/items/chicken_popcorn.jpg";
+import malaiChickenTikkaImg from "../assets/items/malai_chicken_tikka.jpg";
 
 export const menuHeader = {
-  title: "From Our Kitchen to You",
-  openingTime: "Mon-Fri: 2 PM - 10:30 PM | Sat-Sun: 9 AM - 10:30 PM",
-  tagline: "HOT & FRESH FOOD DELIVERED TO YOUR DOORSTEP",
+  title: "Sisterly Bites Cloud Kitchen",
+  openingTime: "Daily: 1 PM - 10:30 PM",
+  tagline: "HOMEMADE GOODNESS, ALWAYS ♡",
   phone: "9194130132",
-  posterImage: zukasMenuPoster,
+  posterImage: sisterlyMenuPoster,
 };
 
 export const pizzaMenuItems = [
   {
+    id: "classic-fries",
+    name: "Classic Fries",
+    description: "Golden crispy classic salted french fries with dipping sauce",
+    isVeg: true,
+    category: "fries",
+    image: classicFriesImg,
+    price: 89,
+    prices: {
+      regular: 89,
+      portion: 89,
+    },
+  },
+  {
+    id: "peri-peri-fries",
+    name: "Peri Peri Fries",
+    description: "Crispy french fries generously tossed in zesty peri-peri spice mix",
+    isVeg: true,
+    category: "fries",
+    image: periPeriFriesImg,
+    price: 109,
+    prices: {
+      regular: 109,
+      portion: 109,
+    },
+  },
+  {
+    id: "loaded-fries",
+    name: "Loaded Fries",
+    description: "Golden fries drenched in melted cheese, secret signature sauce & savory herbs",
+    isVeg: true,
+    category: "fries",
+    image: loadedFriesImg,
+    price: 149,
+    prices: {
+      regular: 149,
+      portion: 149,
+    },
+  },
+  {
     id: "burger-zinger",
     name: "Chicken Zinger Burger",
-    description: "Crispy fried patty, fresh crunchy lettuce & creamy mayo",
+    description: "Extra crispy chicken fillet patty, fresh crunchy lettuce & rich mayo spread",
     isVeg: false,
     category: "burger",
-    image: zingerBurgerImg,
-    price: 60,
+    image: chickenZingerBurgerImg,
+    price: 99,
     prices: {
-      regular: 60,
-      small: 60,
-      medium: 60,
+      regular: 99,
+      portion: 99,
     },
   },
   {
-    id: "pizza-margherita",
-    name: "Pizza Margherita",
-    description: "Cheese",
-    isVeg: true,
-    image: margheritaImg,
-    prices: {
-      small: 99,
-      medium: 139,
-    },
-  },
-  {
-    id: "pizza-cheese-corn",
-    name: "Pizza Cheese Corn",
-    description: "Cheese & sweet corn",
-    isVeg: true,
-    image: cheeseCornImg,
-    prices: {
-      small: 119,
-      medium: 149,
-    },
-  },
-  {
-    id: "pizza-veg-pizza",
-    name: "Pizza Veg Pizza",
-    description: "Cheese, Onion, capsicum and tomato",
-    isVeg: true,
-    image: vegPizzaImg,
-    prices: {
-      small: 139,
-      medium: 179,
-    },
-  },
-  {
-    id: "pizza-veg-cheese-corn",
-    name: "Pizza Veg Cheese Corn",
-    description: "Cheese, Onion, capsicum & sweet corn",
-    isVeg: true,
-    image: vegCheeseCornImg,
-    prices: {
-      small: 149,
-      medium: 189,
-    },
-  },
-  {
-    id: "pizza-paneer-tikka",
-    name: "Pizza Paneer Tikka",
-    description: "Cheese, Onion, capsicum & paneer tikka",
-    isVeg: true,
-    image: paneerTikkaImg,
-    prices: {
-      small: 159,
-      medium: 199,
-    },
-  },
-  {
-    id: "pizza-chicken-tikka",
-    name: "Pizza Chicken Tikka",
-    description: "Cheese, Onion, capsicum & chicken tikka",
+    id: "chicken-popcorn",
+    name: "Chicken Popcorn",
+    description: "Bite-sized crunchy spiced chicken pops fried to golden perfection with dip",
     isVeg: false,
-    image: chickenTikkaImg,
+    category: "chicken",
+    image: chickenPopcornImg,
+    price: 99,
     prices: {
-      small: 169,
-      medium: 209,
+      regular: 99,
+      portion: 99,
     },
   },
   {
-    id: "pizza-chicken-peri-peri",
-    name: "Pizza Chicken Peri Peri",
-    description: "Spicy Peri Peri chicken chunks, cheese, capsicum & herbs",
+    id: "malai-chicken-tikka",
+    name: "Malai Chicken Tikka",
+    description: "Juicy tender boneless chicken roasted with creamy malai and mild aromatic spices",
     isVeg: false,
-    image: chickenTikkaImg,
+    category: "chicken",
+    image: malaiChickenTikkaImg,
+    price: 70,
     prices: {
-      small: 199,
-      medium: 249,
+      half: 70,
+      full: 120,
     },
   },
 ];
 
 export const extraAddons = [
   {
-    id: "extra-cheese",
-    name: "Extra Cheese",
-    price: 25,
+    id: "extra-cheese-dip",
+    name: "Extra Cheese Dip",
+    price: 20,
+  },
+  {
+    id: "extra-peri-peri",
+    name: "Peri Peri Seasoning",
+    price: 15,
+  },
+  {
+    id: "campa-drink",
+    name: "Chilled Cold Drink",
+    price: 10,
   },
 ];

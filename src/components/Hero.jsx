@@ -2,7 +2,7 @@ import React from "react";
 import Spinner from "./Spinner";
 import NameInputForm from "./NameInputForm";
 import SpinButton from "./SpinButton";
-import { Sparkles, Pizza, ShieldCheck, Heart, Clock, Award, ArrowDown, MapPin } from "lucide-react";
+import { Sparkles, UtensilsCrossed, ShieldCheck, Heart, Clock, Award, ArrowDown, MapPin } from "lucide-react";
 import { config } from "../config/config";
 import { trackEvent } from "../utils/analytics";
 
@@ -57,14 +57,14 @@ export default function Hero({
           </h1>
 
           <p className="hero-description">
-            Your next pizza might come with a surprise discount! 🎉 Enter your name to start, spin the wheel, and unlock delicious rewards instantly.
+            Your next order might come with a surprise discount! 🎉 Enter your name to start, spin the wheel, and unlock delicious rewards instantly.
           </p>
 
           {/* Benefit Pills */}
           <div className="hero-benefits-row">
             <div className="benefit-pill">
-              <Pizza size={16} className="benefit-icon" />
-              <span>Delicious Food</span>
+              <UtensilsCrossed size={16} className="benefit-icon" />
+              <span>Homemade Goodness</span>
             </div>
             <div className="benefit-pill">
               <Clock size={16} className="benefit-icon" />

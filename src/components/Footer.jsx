@@ -4,7 +4,7 @@ import InstagramIcon from "./icons/InstagramIcon";
 import { config } from "../config/config";
 import { trackEvent } from "../utils/analytics";
 import { getWhatsAppOrderLink } from "../utils/whatsapp";
-import zukasLogo from "../assets/zukasKirchenlogo.jpg";
+import sisterlyLogo from "../assets/sisterly_bites_logo.jpg";
 
 export default function Footer({ onOpenTerms }) {
   const handleInstagramClick = () => {
@@ -29,15 +29,15 @@ export default function Footer({ onOpenTerms }) {
           {/* Brand Info */}
           <div className="footer-brand-col">
             <div className="brand-logo footer-logo">
-              <img src={zukasLogo} alt={config.brandName} className="footer-logo-img" />
+              <img src={sisterlyLogo} alt={config.brandName} className="footer-logo-img" />
               <div className="logo-text-group">
                 <span className="brand-name">{config.brandName}</span>
-                <span className="brand-tagline">{config.tagline}</span>
+                <span className="brand-tagline">HOMEMADE GOODNESS ALWAYS</span>
               </div>
             </div>
 
             <p className="footer-about-text">
-              Zukas Kitchen brings you hot, handcrafted pizzas, freshly prepared garlic breads, and delightful meals made with love. Order directly on WhatsApp or join our Spin & Win campaign today!
+              Sisterly Bites Cloud Kitchen brings you golden crispy fries, loaded specials, crunchy chicken zinger burgers, popcorn chicken, and tender malai chicken tikka made with love. Order directly on WhatsApp or join our Spin & Win campaign today!
             </p>
 
             {/* FSSAI Badge */}
@@ -64,7 +64,7 @@ export default function Footer({ onOpenTerms }) {
                 <button onClick={() => scrollToSection("promo")}>Offers & Menu</button>
               </li>
               <li>
-                <button onClick={() => scrollToSection("why-zukas")}>Why Zukas Kitchen</button>
+                <button onClick={() => scrollToSection("why-zukas")}>Why Sisterly Bites</button>
               </li>
             </ul>
           </div>

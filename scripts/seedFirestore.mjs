@@ -67,27 +67,27 @@ async function seedAdminData() {
 
   const seedPrizes = [
     {
-      id: "25-off-2-medium-pizza",
-      name: "₹25 OFF ON ORDER 2 MEDIUM PIZZA",
+      id: "25-off-combo",
+      name: "₹25 OFF ON BURGER & FRIES COMBO",
       weight: 10,
       enabled: true,
-      couponPrefix: "ZUKAS25",
+      couponPrefix: "SB25",
       isWinning: true,
     },
     {
       id: "10-off",
       name: "₹10 OFF",
-      weight: 55,
+      weight: 50,
       enabled: true,
-      couponPrefix: "ZUKAS10",
+      couponPrefix: "SB10",
       isWinning: true,
     },
     {
       id: "20-off",
       name: "₹20 OFF",
-      weight: 12,
+      weight: 15,
       enabled: true,
-      couponPrefix: "ZUKAS20",
+      couponPrefix: "SB20",
       isWinning: true,
     },
     {
@@ -101,25 +101,25 @@ async function seedAdminData() {
     {
       id: "15-off",
       name: "₹15 OFF",
-      weight: 8,
+      weight: 10,
       enabled: true,
-      couponPrefix: "ZUKAS15",
+      couponPrefix: "SB15",
       isWinning: true,
     },
     {
-      id: "30-off",
-      name: "₹30 OFF ON ORDER 3 ANY MEDIUM PIZZA",
+      id: "30-off-meal",
+      name: "₹30 OFF ON ORDERS ABOVE ₹299",
       weight: 5,
       enabled: true,
-      couponPrefix: "ZUKAS30",
+      couponPrefix: "SB30",
       isWinning: true,
     },
     {
       id: "free-campa-10",
-      name: "FREE CAMPA WORTH ₹10",
-      weight: 60,
+      name: "FREE DRINK WORTH ₹10",
+      weight: 55,
       enabled: true,
-      couponPrefix: "ZUKASCAMPA",
+      couponPrefix: "SBFREE",
       isWinning: true,
     }
   ];

@@ -40,30 +40,26 @@ export default function PizzaOrderModal({
   const [locationError, setLocationError] = useState("");
   const [locationSuccess, setLocationSuccess] = useState(false);
 
-  const extraCheesePrice = 25;
+  const extraCheesePrice = 20;
 
-  // Sync initial pizza when modal opens
+  // Sync initial item when modal opens
   useEffect(() => {
     if (pizza) {
-      const isBurger =
-        pizza.category === "burger" ||
-        !pizza.prices?.medium ||
-        pizza.prices?.small === pizza.prices?.medium;
-      const finalSize = isBurger ? "regular" : initialSize;
+      const hasPortions = Boolean(pizza.prices?.half && pizza.prices?.full);
+      const finalSize = hasPortions ? (initialSize === "full" ? "full" : "half") : "regular";
       const basePrice =
-        pizza.price ||
         pizza.prices?.[finalSize] ||
-        pizza.prices?.regular ||
-        pizza.prices?.small ||
-        60;
+        pizza.price ||
+        (hasPortions ? pizza.prices?.half : pizza.prices?.regular) ||
+        89;
 
       setOrderItems([
         {
           id: `item-${Date.now()}-${Math.random().toString(36).substr(2, 6)}`,
           menuId: pizza.id,
           name: pizza.name,
-          category: pizza.category || (isBurger ? "burger" : "pizza"),
-          isBurger,
+          category: pizza.category || "item",
+          hasPortions,
           image: pizza.image,
           isVeg: pizza.isVeg,
           description: pizza.description,
@@ -116,7 +112,7 @@ export default function PizzaOrderModal({
   const handleItemSizeChange = (itemId, newSize) => {
     setOrderItems((prev) =>
       prev.map((it) => {
-        if (it.id === itemId && !it.isBurger) {
+        if (it.id === itemId && it.hasPortions) {
           const newBasePrice = it.prices?.[newSize] || it.basePrice;
           return { ...it, size: newSize, basePrice: newBasePrice };
         }
@@ -144,18 +140,15 @@ export default function PizzaOrderModal({
     setOrderItems((prev) => prev.filter((it) => it.id !== itemId));
   };
 
-  const handleAddItemFromMenu = (menuItem, chosenSize = "small") => {
-    const isBurger =
-      menuItem.category === "burger" ||
-      !menuItem.prices?.medium ||
-      menuItem.prices?.small === menuItem.prices?.medium;
-    const finalSize = isBurger ? "regular" : chosenSize;
+  const handleAddItemFromMenu = (menuItem, chosenSize = "portion") => {
+    const hasPortions = Boolean(menuItem.prices?.half && menuItem.prices?.full);
+    const finalSize = hasPortions ? (chosenSize === "full" ? "full" : "half") : "regular";
     const itemPrice =
-      menuItem.price ||
       menuItem.prices?.[finalSize] ||
+      menuItem.price ||
       menuItem.prices?.regular ||
-      menuItem.prices?.small ||
-      60;
+      menuItem.prices?.portion ||
+      89;
 
     // If identical item with same size exists, increment quantity
     const existingIndex = orderItems.findIndex(
@@ -177,8 +170,8 @@ export default function PizzaOrderModal({
           id: `item-${Date.now()}-${Math.random().toString(36).substr(2, 6)}`,
           menuId: menuItem.id,
           name: menuItem.name,
-          category: menuItem.category || (isBurger ? "burger" : "pizza"),
-          isBurger,
+          category: menuItem.category || "item",
+          hasPortions,
           image: menuItem.image,
           isVeg: menuItem.isVeg,
           description: menuItem.description,
@@ -287,9 +280,7 @@ export default function PizzaOrderModal({
   const modalBadgeText =
     orderItems.length > 1
       ? `🛒 YOUR ORDER (${totalItemsCount} ${totalItemsCount === 1 ? "ITEM" : "ITEMS"})`
-      : orderItems[0]?.isBurger
-      ? "🍔 YOUR BURGER ORDER"
-      : "🍕 YOUR PIZZA ORDER";
+      : "✨ SISTERLY BITES ORDER";
 
   const modalTitle =
     orderItems.length > 1
@@ -328,7 +319,7 @@ export default function PizzaOrderModal({
               <label className="order-group-label" style={{ marginBottom: 0 }}>
                 Selected Food Items ({orderItems.length}):
               </label>
-              <span className="order-items-hint">Customize sizes, quantity & cheese below</span>
+              <span className="order-items-hint">Customize portion & quantity below</span>
             </div>
 
             <div className="order-items-list">
@@ -346,7 +337,7 @@ export default function PizzaOrderModal({
                           <h4 className="order-item-name">{item.name}</h4>
                           <span className="order-item-unit-price">
                             Base: ₹{item.basePrice}
-                            {item.isBurger ? " (Regular)" : ` (${item.size === "small" ? "Small 6\"" : "Medium 8\""})`}
+                            {item.hasPortions ? ` (${item.size === "half" ? "Half" : "Full"})` : ""}
                           </span>
                         </div>
                       </div>
@@ -364,30 +355,30 @@ export default function PizzaOrderModal({
                       )}
                     </div>
 
-                    {/* Size Selector for Pizzas */}
-                    {!item.isBurger && item.prices && (
+                    {/* Portion Selector for items with portions (e.g. Tikka) */}
+                    {item.hasPortions && (
                       <div className="order-item-size-row">
-                        <span className="size-row-label">Size:</span>
+                        <span className="size-row-label">Portion:</span>
                         <div className="item-size-pill-group">
                           <button
                             type="button"
-                            className={`item-size-pill ${item.size === "small" ? "active" : ""}`}
-                            onClick={() => handleItemSizeChange(item.id, "small")}
+                            className={`item-size-pill ${item.size === "half" ? "active" : ""}`}
+                            onClick={() => handleItemSizeChange(item.id, "half")}
                           >
-                            Small (6") • ₹{item.prices?.small}
+                            Half • ₹{item.prices?.half}
                           </button>
                           <button
                             type="button"
-                            className={`item-size-pill ${item.size === "medium" ? "active" : ""}`}
-                            onClick={() => handleItemSizeChange(item.id, "medium")}
+                            className={`item-size-pill ${item.size === "full" ? "active" : ""}`}
+                            onClick={() => handleItemSizeChange(item.id, "full")}
                           >
-                            Medium (8") • ₹{item.prices?.medium}
+                            Full • ₹{item.prices?.full}
                           </button>
                         </div>
                       </div>
                     )}
 
-                    {/* Extra Cheese Option */}
+                    {/* Extra Cheese Dip Option */}
                     <div
                       className={`order-item-cheese-toggle ${item.hasExtraCheese ? "checked" : ""}`}
                       onClick={() => handleItemExtraCheeseToggle(item.id)}
@@ -400,7 +391,7 @@ export default function PizzaOrderModal({
                         onClick={(e) => e.stopPropagation()}
                       />
                       <label htmlFor={`cheese-${item.id}`} className="cheese-toggle-label">
-                        <span>🧀 Add Extra Cheese</span>
+                        <span>🧀 Add Extra Cheese Dip</span>
                         <span className="addon-tag">+₹{extraCheesePrice}</span>
                       </label>
                     </div>
@@ -467,12 +458,9 @@ export default function PizzaOrderModal({
 
                   <div className="quick-add-items-grid">
                     {pizzaMenuItems.map((menuItem) => {
-                      const isItemBurger =
-                        menuItem.category === "burger" ||
-                        !menuItem.prices?.medium ||
-                        menuItem.prices?.small === menuItem.prices?.medium;
-                      const burgerPrice =
-                        menuItem.price || menuItem.prices?.regular || menuItem.prices?.small || 60;
+                      const hasPortions = Boolean(menuItem.prices?.half && menuItem.prices?.full);
+                      const itemPrice =
+                        menuItem.prices?.regular || menuItem.price || menuItem.prices?.portion || 89;
 
                       return (
                         <div key={menuItem.id} className="quick-add-card">
@@ -484,34 +472,34 @@ export default function PizzaOrderModal({
                           </div>
 
                           <div className="quick-add-actions">
-                            {isItemBurger ? (
-                              <button
-                                type="button"
-                                className="quick-add-btn burger-add"
-                                onClick={() => handleAddItemFromMenu(menuItem, "regular")}
-                              >
-                                <Plus size={14} />
-                                <span>+ Add • ₹{burgerPrice}</span>
-                              </button>
-                            ) : (
+                            {hasPortions ? (
                               <div className="quick-add-size-btns">
                                 <button
                                   type="button"
                                   className="quick-add-btn pizza-add small"
-                                  onClick={() => handleAddItemFromMenu(menuItem, "small")}
+                                  onClick={() => handleAddItemFromMenu(menuItem, "half")}
                                 >
                                   <Plus size={13} />
-                                  <span>Small • ₹{menuItem.prices?.small}</span>
+                                  <span>Half • ₹{menuItem.prices?.half}</span>
                                 </button>
                                 <button
                                   type="button"
                                   className="quick-add-btn pizza-add medium"
-                                  onClick={() => handleAddItemFromMenu(menuItem, "medium")}
+                                  onClick={() => handleAddItemFromMenu(menuItem, "full")}
                                 >
                                   <Plus size={13} />
-                                  <span>Medium • ₹{menuItem.prices?.medium}</span>
+                                  <span>Full • ₹{menuItem.prices?.full}</span>
                                 </button>
                               </div>
+                            ) : (
+                              <button
+                                type="button"
+                                className="quick-add-btn burger-add"
+                                onClick={() => handleAddItemFromMenu(menuItem, "portion")}
+                              >
+                                <Plus size={14} />
+                                <span>+ Add • ₹{itemPrice}</span>
+                              </button>
                             )}
                           </div>
                         </div>

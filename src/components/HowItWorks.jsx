@@ -25,7 +25,7 @@ export default function HowItWorks() {
       stepNumber: "04",
       icon: Utensils,
       title: "Order & Enjoy",
-      description: "Apply your code at checkout and enjoy delicious Zukas Kitchen food delivered fresh!",
+      description: "Apply your code at checkout and enjoy delicious Sisterly Bites food delivered fresh!",
     },
   ];
 

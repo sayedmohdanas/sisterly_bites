@@ -235,7 +235,7 @@ export default function ResultModal({
                 )}
 
                 <p className="coupon-disclaimer" style={{ marginBottom: "16px", textAlign: "center", fontWeight: "600" }}>
-                  Explore our menu to select your pizza and use this coupon!
+                  Explore our menu to select your items and use this coupon!
                 </p>
 
                 <div className="modal-cta-group">
@@ -245,7 +245,7 @@ export default function ResultModal({
                     onClick={handleExploreMenu}
                   >
                     <MessageSquare size={20} />
-                    <span>🍕 Select Pizza and Order</span>
+                    <span>🍟 Select Items & Order</span>
                   </button>
 
                   <button
@@ -357,7 +357,7 @@ export default function ResultModal({
                       <span>COUPON CLAIMED SUCCESSFULLY{claimedMobile ? ` (${claimedMobile})` : ""}!</span>
                     </div>
                     <p className="coupon-disclaimer" style={{ margin: 0, textAlign: "center", marginBottom: "16px" }}>
-                      Explore our menu to select your pizza and use this coupon!
+                      Explore our menu to select your items and use this coupon!
                     </p>
                   </div>
                 )}
@@ -371,7 +371,7 @@ export default function ResultModal({
                       onClick={handleExploreMenu}
                     >
                       <MessageSquare size={20} />
-                      <span>🍕 Select Pizza and Order</span>
+                      <span>🍟 Select Items & Order</span>
                     </button>
                   )}
 
@@ -407,11 +407,11 @@ export default function ResultModal({
             </h2>
             {displayName && (
               <p className="modal-subtext" style={{ fontSize: "16px", fontWeight: "700", color: "#1E293B", marginBottom: "8px" }}>
-                Hi {displayName}! 🍕
+                Hi {displayName}! 🍟
               </p>
             )}
             <p className="modal-subtext">
-              Don't worry! You can still check out our delicious pizzas and order directly on WhatsApp.
+              Don't worry! You can still check out our delicious menu and order directly on WhatsApp.
             </p>
 
             <div className="modal-cta-group">
@@ -421,7 +421,7 @@ export default function ResultModal({
                 onClick={handleExploreMenu}
               >
                 <MessageSquare size={20} />
-                <span>🍕 Select Pizza and Order</span>
+                <span>🍟 Select Items & Order</span>
               </button>
 
               <button

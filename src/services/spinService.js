@@ -264,7 +264,7 @@ export const spinWheelService = async (
   }
 
   const actualPrizeIndex = selectedItem.originalIndex;
-  const couponPrefix = selectedItem.couponPrefix || "ZUKAS";
+  const couponPrefix = selectedItem.couponPrefix || "SB";
   const couponCode = selectedItem.isWinningPrize ? `${couponPrefix}DEMO` : null;
 
   return {
@@ -310,8 +310,8 @@ export const claimCouponService = async (spinId, mobileNumber = null) => {
       success: true,
       spinId: spinId || `local_${Date.now()}`,
       mobile: normalizedMobile,
-      couponCode: "ZUKAS10",
-      prizeName: "10% OFF",
+      couponCode: "SB10",
+      prizeName: "₹10 OFF",
       message: "Coupon claimed successfully!",
     };
   }
@@ -336,7 +336,7 @@ export const claimCouponService = async (spinId, mobileNumber = null) => {
     if (normalizedMobile) {
       try {
         localStorage.setItem(
-          `zukas_spin_${normalizedMobile}`,
+          `sisterly_spin_${normalizedMobile}`,
           JSON.stringify({
             mobile: normalizedMobile,
             spinId: data.spinId,
@@ -362,8 +362,8 @@ export const claimCouponService = async (spinId, mobileNumber = null) => {
     success: true,
     spinId: spinId || `local_${Date.now()}`,
     mobile: normalizedMobile,
-    couponCode: "ZUKAS10",
-    prizeName: "10% OFF",
+    couponCode: "SB10",
+    prizeName: "₹10 OFF",
     message: "Coupon claimed successfully!",
   };
 };

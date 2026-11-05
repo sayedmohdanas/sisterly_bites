@@ -4,7 +4,7 @@ import InstagramIcon from "./icons/InstagramIcon";
 import { config } from "../config/config";
 import { trackEvent } from "../utils/analytics";
 import { getWhatsAppOrderLink } from "../utils/whatsapp";
-import zukasLogo from "../assets/zukasKirchenlogo.jpg";
+import sisterlyLogo from "../assets/sisterly_bites_logo.jpg";
 import { useTheme } from "../contexts/ThemeContext";
 
 export default function Navbar() {
@@ -60,10 +60,10 @@ export default function Navbar() {
       <div className="navbar-container">
         {/* Brand Logo / Emblem */}
         <a href="#hero" className="brand-logo" onClick={() => handleNavClick("hero", "Logo")}>
-          <img src={zukasLogo} alt={config.brandName} className="navbar-logo-img" />
+          <img src={sisterlyLogo} alt={config.brandName} className="navbar-logo-img" />
           <div className="logo-text-group">
             <span className="brand-name">{config.brandName}</span>
-            <span className="brand-tagline">GOOD FOOD HAPPIER PEOPLE</span>
+            <span className="brand-tagline">HOMEMADE GOODNESS ALWAYS</span>
           </div>
         </a>
 
@@ -73,7 +73,7 @@ export default function Navbar() {
             Home
           </button>
           <button onClick={() => handleNavClick("menu", "Menu")} className="nav-link nav-link-highlight">
-            🍕 Our Menu
+            🍟 Our Menu
           </button>
           <button onClick={() => handleNavClick("how-it-works", "How It Works")} className="nav-link">
             How It Works
@@ -82,7 +82,7 @@ export default function Navbar() {
             Offers
           </button>
           <button onClick={() => handleNavClick("why-zukas", "Why Us")} className="nav-link">
-            Why Zukas
+            Why Us
           </button>
           <button onClick={() => handleNavClick("footer", "Contact")} className="nav-link">
             Contact
@@ -145,7 +145,7 @@ export default function Navbar() {
           <div className="mobile-drawer-content" onClick={(e) => e.stopPropagation()}>
             <div className="mobile-drawer-header">
               <div className="brand-logo">
-                <img src={zukasLogo} alt={config.brandName} className="navbar-logo-img" />
+                <img src={sisterlyLogo} alt={config.brandName} className="navbar-logo-img" />
                 <div className="logo-text-group">
                   <span className="brand-name">{config.brandName}</span>
                 </div>
@@ -165,7 +165,7 @@ export default function Navbar() {
                 Home & Spin
               </button>
               <button onClick={() => handleNavClick("menu", "Our Menu")} className="mobile-nav-link mobile-nav-menu-highlight">
-                🍕 Our Pizza Menu
+                🍟 Our Menu
               </button>
               <button onClick={() => handleNavClick("how-it-works", "How It Works")} className="mobile-nav-link">
                 How It Works
@@ -174,7 +174,7 @@ export default function Navbar() {
                 Offers
               </button>
               <button onClick={() => handleNavClick("why-zukas", "Why Us")} className="mobile-nav-link">
-                Why Zukas Kitchen
+                Why Sisterly Bites
               </button>
               <button onClick={() => handleNavClick("footer", "Contact")} className="mobile-nav-link">
                 Contact & Rules

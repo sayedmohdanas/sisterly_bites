@@ -1,31 +1,31 @@
 import React from "react";
-import { UtensilsCrossed, Bike, Leaf, Heart } from "lucide-react";
+import { UtensilsCrossed, Bike, Sparkles, Heart } from "lucide-react";
 
 export default function WhyZukas() {
   const features = [
     {
       icon: UtensilsCrossed,
-      title: "🍕 Delicious Food",
-      description: "Freshly prepared food with authentic recipes and great taste in every single bite.",
-      color: "#198C09",
+      title: "🍟 Homemade Goodness",
+      description: "Authentic homemade recipes prepared fresh with high-grade spices and care in every single bite.",
+      color: "#E63946",
     },
     {
       icon: Bike,
       title: "🚴 Fast Delivery",
-      description: "Piping hot delivery straight from our kitchen to your doorstep without delay.",
+      description: "Piping hot delivery straight from our cloud kitchen to your doorstep without delay.",
       color: "#FF9F1C",
     },
     {
-      icon: Leaf,
-      title: "🌿 Fresh Ingredients",
-      description: "Highest quality farm-fresh veggies, 100% real dairy cheese & zero compromises.",
+      icon: Sparkles,
+      title: "✨ Crispy & Fresh",
+      description: "Crispy fries, juicy zinger patties & tender chicken popcorn made to order with zero compromises.",
       color: "#2A9D8F",
     },
     {
       icon: Heart,
       title: "❤️ Made With Love",
-      description: "Thoughtfully crafted food tailored to create happier people and sweeter memories.",
-      color: "#E63946",
+      description: "Good food for brighter days. Thoughtfully crafted to bring joy and smile to your table.",
+      color: "#D90429",
     },
   ];
 
@@ -34,9 +34,9 @@ export default function WhyZukas() {
       <div className="section-container">
         <div className="section-header text-center">
           <span className="section-badge">OUR PROMISE</span>
-          <h2 className="section-title">WHY ZUKAS KITCHEN?</h2>
+          <h2 className="section-title">WHY SISTERLY BITES?</h2>
           <p className="section-subtitle">
-            We are passionate about delivering happiness on a plate.
+            Homemade Goodness, Always ♡ Good Food, Brighter Days.
           </p>
         </div>
 

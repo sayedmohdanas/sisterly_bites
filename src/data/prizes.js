@@ -1,18 +1,19 @@
-// Zukas Kitchen Spin & Win Central Prize Configuration
+// Sisterly Bites Spin & Win Central Prize Configuration
 const prizes = [
   {
-    id: "25-off-2-medium-pizza",
-    label: "₹25 OFF ON ORDER 2 MEDIUM (8 inch) PIZZA",
+    id: "25-off-combo",
+    label: "₹25 OFF ON BURGER & FRIES COMBO",
     wheelLabel: "₹25 OFF",
-    subLabel: "ON ORDER 2 MEDIUM (8 inch) PIZZA",
+    subLabel: "Burger & Fries Combo",
     type: "discount",
     value: 25,
-    weight: 10, // 10% probability
+    weight: 10,
     enabled: true,
     isWinningPrize: true,
-    bgColor: "#198C09", // Zukas Green
+    couponPrefix: "SB25",
+    bgColor: "#E63946", // Sisterly Crimson
     textColor: "#FFFFFF",
-    badge: "2 PIZZA DEAL",
+    badge: "COMBO DEAL",
     accentColor: "#FFD700"
   },
   {
@@ -22,9 +23,10 @@ const prizes = [
     subLabel: "On Any Order",
     type: "discount",
     value: 10,
-    weight: 55, // 55% probability (most frequent)
+    weight: 50,
     enabled: true,
     isWinningPrize: true,
+    couponPrefix: "SB10",
     bgColor: "#FF9F1C", // Warm Amber
     textColor: "#1E293B",
     badge: "SAVINGS",
@@ -32,18 +34,19 @@ const prizes = [
   },
   {
     id: "20-off",
-    label: "₹20 OFF ON ANY MEDIUM (8 inch) PIZZA",
+    label: "₹20 OFF",
     wheelLabel: "₹20 OFF",
-    subLabel: "On Any Medium (8 inch) Pizza",
+    subLabel: "On Orders Above ₹199",
     type: "discount",
     value: 20,
-    weight: 12, // 12% probability
+    weight: 15,
     enabled: true,
     isWinningPrize: true,
+    couponPrefix: "SB20",
     bgColor: "#FFB703", // Golden Yellow
     textColor: "#1E293B",
     badge: "BONUS",
-    accentColor: "#198C09"
+    accentColor: "#E63946"
   },
   {
     id: "better-luck",
@@ -52,9 +55,10 @@ const prizes = [
     subLabel: "NEXT TIME",
     type: "no_win",
     value: null,
-    weight: 10, // 10% probability
+    weight: 10,
     enabled: true,
     isWinningPrize: false,
+    couponPrefix: null,
     bgColor: "#334155", // Charcoal Slate
     textColor: "#F8FAFC",
     badge: "TRY AGAIN",
@@ -67,40 +71,43 @@ const prizes = [
     subLabel: "Super Saver",
     type: "discount",
     value: 15,
-    weight: 8, // 8% probability
+    weight: 10,
     enabled: true,
     isWinningPrize: true,
+    couponPrefix: "SB15",
     bgColor: "#2A9D8F", // Fresh Teal
     textColor: "#FFFFFF",
     badge: "BIG DEAL",
     accentColor: "#FFD700"
   },
   {
-    id: "30-off",
-    label: "₹30 OFF ON ORDER 3 ANY MEDIUM (8 inch) PIZZA",
+    id: "30-off-meal",
+    label: "₹30 OFF ON ORDERS ABOVE ₹299",
     wheelLabel: "₹30 OFF",
-    subLabel: "ON ORDER 3 ANY MEDIUM (8 inch) PIZZA",
+    subLabel: "On Orders Above ₹299",
     type: "discount",
     value: 30,
-    weight: 5, // 5% probability
+    weight: 5,
     enabled: true,
     isWinningPrize: true,
+    couponPrefix: "SB30",
     bgColor: "#F4A261", // Sunset Orange
     textColor: "#1E293B",
     badge: "YUMMY",
-    accentColor: "#198C09"
+    accentColor: "#E63946"
   },
   {
     id: "free-campa-10",
-    label: "FREE CAMPA WORTH ₹10",
-    wheelLabel: "FREE CAMPA",
+    label: "FREE DRINK WORTH ₹10",
+    wheelLabel: "FREE DRINK",
     subLabel: "Worth ₹10",
     type: "freebie",
     value: 10,
-    weight: 60,
+    weight: 55,
     enabled: true,
     isWinningPrize: true,
-    bgColor: "#E63946", // Red for Campa
+    couponPrefix: "SBFREE",
+    bgColor: "#D90429", // Festive Red
     textColor: "#FFFFFF",
     badge: "FREE DRINK",
     accentColor: "#F1FAEE"

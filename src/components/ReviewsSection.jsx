@@ -10,7 +10,7 @@ const fallbackReviews = [
     village: "Khankah",
     date: "2 days ago",
     rating: 5,
-    text: "Absolutely the best pizza in town! The crust is so fresh and the cheese is perfectly melted. Fast delivery too!",
+    text: "Absolutely the best fries and zinger burger in town! The fries were super crispy and the chicken was so juicy. Fast delivery too!",
   },
   {
     id: "fallback-2",
@@ -18,7 +18,7 @@ const fallbackReviews = [
     village: "Dewabindwal",
     date: "1 week ago",
     rating: 5,
-    text: "Loved the Zukas Special! The Spin & Win coupon worked flawlessly. Will definitely be ordering again for our next party.",
+    text: "Loved the Loaded Fries and Popcorn Chicken! The Spin & Win coupon worked flawlessly. Will definitely be ordering again for our next party.",
   },
   {
     id: "fallback-3",
@@ -26,7 +26,7 @@ const fallbackReviews = [
     village: "Bindwal",
     date: "1 weeks ago",
     rating: 5,
-    text: "Super hot when it arrived. The extra cheese option is totally worth it. Highly recommend trying their paneer pizza!",
+    text: "Super hot when it arrived. The Malai Chicken Tikka is tender and flavorful. Highly recommend Sisterly Bites!",
   }
 ];
 
@@ -82,7 +82,7 @@ const ReviewsSection = ({ villagesList = [] }) => {
           <MessageCircleHeart size={16} className="badge-icon" />
           <span>WHAT OUR CUSTOMERS SAY</span>
         </div>
-        <h2 className="reviews-title">Loved by Pizza Fans</h2>
+        <h2 className="reviews-title">Loved by Food Lovers</h2>
         <p className="reviews-subtitle">Real reviews from our happy customers.</p>
         <button className="add-review-btn" onClick={() => setIsModalOpen(true)}>
           <PlusCircle size={18} />

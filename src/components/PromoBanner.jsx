@@ -4,6 +4,7 @@ import InstagramIcon from "./icons/InstagramIcon";
 import { config } from "../config/config";
 import { trackEvent } from "../utils/analytics";
 import { getWhatsAppOrderLink } from "../utils/whatsapp";
+import sisterlyMenuPoster from "../assets/sisterly_bites_menu.jpg";
 
 export default function PromoBanner() {
   const handleWhatsAppOrder = () => {
@@ -27,29 +28,29 @@ export default function PromoBanner() {
             <div className="promo-text-column">
               <div className="promo-tag">
                 <Flame size={16} className="flame-icon" />
-                <span>FRESHLY BAKED PERFECTION</span>
+                <span>HOMEMADE GOODNESS ALWAYS</span>
               </div>
 
               <h2 className="promo-title">
-                Good Food Is Always a Good Idea <Heart size={28} className="heart-inline-icon" />
+                Good Food, Brighter Days <Heart size={28} className="heart-inline-icon" />
               </h2>
 
               <p className="promo-subtitle">
-                Fresh ingredients. Delicious flavors. Made with love. Every pizza at Zukas Kitchen is hand-crafted with premium cheese, secret spices, and hot-from-the-oven goodness.
+                Fresh ingredients. Delicious flavors. Made with love. Every meal at Sisterly Bites Cloud Kitchen is hand-crafted with crunchy fries, succulent chicken, secret seasoning, and sizzling hot freshness.
               </p>
 
               <div className="promo-highlights">
                 <div className="highlight-pill">
                   <Star size={16} fill="#FFD700" color="#FFD700" />
-                  <span>100% Mozzarella Cheese</span>
+                  <span>Crispy Peri Peri Fries</span>
                 </div>
                 <div className="highlight-pill">
                   <Star size={16} fill="#FFD700" color="#FFD700" />
-                  <span>Hand-tossed Dough</span>
+                  <span>Juicy Zinger Burger</span>
                 </div>
                 <div className="highlight-pill">
                   <Star size={16} fill="#FFD700" color="#FFD700" />
-                  <span>Secret Recipe Sauce</span>
+                  <span>Creamy Malai Chicken Tikka</span>
                 </div>
               </div>
 
@@ -74,28 +75,14 @@ export default function PromoBanner() {
               </div>
             </div>
 
-            {/* Right Food Showcase Illustration Card */}
+            {/* Right Food Showcase Poster Image */}
             <div className="promo-image-column">
-              <div className="pizza-visual-card">
-                <div className="pizza-illustration-badge">HOT & FRESH</div>
-                <div className="pizza-graphic-wrapper">
-                  <div className="pizza-disc-art">
-                    <div className="crust-ring">
-                      <div className="cheese-layer">
-                        <div className="pepperoni-dot dot-1" />
-                        <div className="pepperoni-dot dot-2" />
-                        <div className="pepperoni-dot dot-3" />
-                        <div className="pepperoni-dot dot-4" />
-                        <div className="basil-leaf leaf-1" />
-                        <div className="basil-leaf leaf-2" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="pizza-card-caption">
-                  <span className="caption-title">Zukas Special Chicken Peri Peri Pizza</span>
-                  <span className="caption-desc">Loaded with Spicy Chicken, cheese, herbs & fresh veggies</span>
-                </div>
+              <div className="poster-preview-card" style={{ borderRadius: "18px", overflow: "hidden", boxShadow: "0 10px 30px rgba(0,0,0,0.15)" }}>
+                <img
+                  src={sisterlyMenuPoster}
+                  alt="Sisterly Bites Cloud Kitchen Menu"
+                  style={{ width: "100%", height: "auto", display: "block", objectFit: "cover", borderRadius: "18px" }}
+                />
               </div>
             </div>
           </div>
