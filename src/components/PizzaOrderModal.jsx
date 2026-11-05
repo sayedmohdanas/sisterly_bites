@@ -12,11 +12,13 @@ import {
   ChevronUp,
   ShoppingBag,
   Sparkles,
+  MapPin,
 } from "lucide-react";
 import { getWhatsAppPizzaOrderLink } from "../utils/whatsapp";
 import { trackEvent } from "../utils/analytics";
 import LocationPickerMap from "./LocationPickerMap";
 import { pizzaMenuItems } from "../data/menuData";
+import { DEFAULT_DELIVERY_AREAS } from "../data/deliveryAreas";
 
 export default function PizzaOrderModal({
   pizza,
@@ -28,6 +30,8 @@ export default function PizzaOrderModal({
   // Array of items in the current order
   const [orderItems, setOrderItems] = useState([]);
   const [isAddMenuOpen, setIsAddMenuOpen] = useState(false);
+
+  const availableAreas = villagesList && villagesList.length > 0 ? villagesList : DEFAULT_DELIVERY_AREAS;
 
   // Delivery details state (optional)
   const [customerName, setCustomerName] = useState("");
@@ -546,27 +550,55 @@ export default function PizzaOrderModal({
                 />
               </div>
 
-              {/* Delivery Address / Village / Locality Input (Optional) */}
+              {/* Delivery Address / Area Input */}
               <div className="input-field-group">
                 <label htmlFor="delivery-address-input" className="input-sublabel">
-                  Delivery Address / Village (optional):
+                  Delivery Area / Address (optional):
                 </label>
                 <input
                   type="text"
                   id="delivery-address-input"
                   list="villages-datalist"
                   className="modal-text-input"
-                  placeholder="e.g. Village name, house number, area..."
+                  placeholder="Select area or type your house / street..."
                   value={deliveryAddress}
                   onChange={(e) => setDeliveryAddress(e.target.value)}
                 />
-                {villagesList && villagesList.length > 0 && (
-                  <datalist id="villages-datalist">
-                    {villagesList.map((village, idx) => (
-                      <option key={idx} value={village} />
-                    ))}
-                  </datalist>
-                )}
+                <datalist id="villages-datalist">
+                  {availableAreas.map((village, idx) => {
+                    const vName = typeof village === "string" ? village : (village?.name || "");
+                    return <option key={idx} value={vName} />;
+                  })}
+                </datalist>
+
+                {/* 1-Tap Quick Select Area Chips */}
+                <div className="quick-select-areas">
+                  <span className="quick-areas-title">
+                    <MapPin size={12} className="quick-areas-icon" /> Tap your area:
+                  </span>
+                  <div className="quick-areas-grid">
+                    {availableAreas.map((village, idx) => {
+                      const vName = typeof village === "string" ? village : (village?.name || "");
+                      const isSelected = deliveryAddress.trim().toLowerCase() === vName.toLowerCase();
+                      return (
+                        <button
+                          key={idx}
+                          type="button"
+                          className={`area-pill-btn ${isSelected ? "selected" : ""}`}
+                          onClick={() => {
+                            if (isSelected) {
+                              setDeliveryAddress("");
+                            } else {
+                              setDeliveryAddress(vName);
+                            }
+                          }}
+                        >
+                          {vName}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
               </div>
 
               {/* Landmark Input */}

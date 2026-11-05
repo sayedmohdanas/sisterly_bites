@@ -44,7 +44,7 @@ export default function LocationPickerMap({ coords, onLocationChange }) {
 
     function initGoogleMap() {
       if (!mapRef.current || !window.google || !window.google.maps) return;
-      const initialCenter = coords || { lat: 26.2183, lng: 82.9739 };
+      const initialCenter = coords || { lat: 25.9561, lng: 83.5483 };
 
       try {
         const map = new window.google.maps.Map(mapRef.current, {

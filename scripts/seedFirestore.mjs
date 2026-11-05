@@ -135,20 +135,23 @@ async function seedAdminData() {
     console.log(`   ✓ Seeded prize: prizes/${id} (${prize.name} - Weight: ${prize.weight})`);
   }
 
-  // 3. Seed delivery villages
+  // 3. Seed delivery villages / areas
   const defaultVillages = [
-    "Khankah",
-    "Bindwal",
-    "Jairajpur",
-    "Jagmalpur",
-    "Hari Pur",
-    "Alauddin Patti",
-    "Gulwa Gauri",
-    "Naseer Pur"
+    "Mirza Hadi Pura",
+    "Astupura",
+    "Domanpura",
+    "Keyari Tola",
+    "Malik Tahir Pura",
+    "Munshi Pura",
+    "Sahadatpura",
+    "Bulaki Pura",
+    "Chitanpura Bagh",
+    "Mirzahadipura Chowk"
   ];
   console.log(`📌 Seeding ${defaultVillages.length} delivery areas in collection: villages`);
   for (const villageName of defaultVillages) {
-    const villageRef = db.collection("villages").doc();
+    const slug = villageName.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+    const villageRef = db.collection("villages").doc(slug);
     await villageRef.set({
       name: villageName,
       active: true,
@@ -162,9 +165,9 @@ async function seedAdminData() {
   const reviewRef = db.collection("reviews").doc();
   await reviewRef.set({
     name: "Mohd Anas",
-    village: "Khankah",
+    village: "Mirza Hadi Pura",
     rating: 5,
-    text: "Delicious food, great offers, and super quick delivery!",
+    text: "Crispy fries, juicy zinger burger and aromatic biryani! Super fast delivery in Mau.",
     createdAt: FieldValue.serverTimestamp(),
   });
   console.log("   ✓ Seeded sample review");

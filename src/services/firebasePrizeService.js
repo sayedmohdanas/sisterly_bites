@@ -1,6 +1,9 @@
 import { db } from "../firebase/firebase.js";
 import { doc, getDoc, collection, getDocs, setDoc, serverTimestamp } from "firebase/firestore";
 import localPrizes from "../data/prizes.js";
+import { DEFAULT_DELIVERY_AREAS, PREFERRED_DELIVERY_ORDER } from "../data/deliveryAreas.js";
+
+export { DEFAULT_DELIVERY_AREAS };
 
 /**
  * Default fallback prize definitions matching the approved Sisterly Bites configuration.
@@ -152,7 +155,10 @@ export const fetchVillagesFromFirestore = async () => {
     const snapshot = await getDocs(villagesRef);
     const uniqueVillagesMap = new Map();
     snapshot.forEach((doc) => {
-      const name = doc.data().name.trim();
+      const data = doc.data();
+      const rawName = data.name || "";
+      const name = rawName.trim();
+      if (!name) return;
       const normalized = name.toLowerCase();
       if (!uniqueVillagesMap.has(normalized)) {
         uniqueVillagesMap.set(normalized, { id: doc.id, name });
@@ -160,24 +166,23 @@ export const fetchVillagesFromFirestore = async () => {
     });
     const villages = Array.from(uniqueVillagesMap.values());
     
-    const PREFERRED_ORDER = [
-      "khankah", "bindwal", "jairajpur", "jagmalpur", "hari pur", "haripur", 
-      "alauddin patti", "alauddin pat", "gulwa gauri", "gulwa", "naseer pur", "naseerpur"
-    ];
+    if (villages.length === 0) {
+      return DEFAULT_DELIVERY_AREAS;
+    }
     
     return villages.sort((a,b) => {
       const aLower = a.name.toLowerCase();
       const bLower = b.name.toLowerCase();
-      let rankA = PREFERRED_ORDER.findIndex(p => aLower.includes(p));
-      let rankB = PREFERRED_ORDER.findIndex(p => bLower.includes(p));
+      let rankA = PREFERRED_DELIVERY_ORDER.findIndex(p => aLower.includes(p));
+      let rankB = PREFERRED_DELIVERY_ORDER.findIndex(p => bLower.includes(p));
       rankA = rankA === -1 ? 999 : rankA;
       rankB = rankB === -1 ? 999 : rankB;
       if (rankA !== rankB) return rankA - rankB;
       return a.name.localeCompare(b.name);
     });
   } catch (error) {
-    console.error("Error fetching villages:", error);
-    return [];
+    console.warn("Using default delivery areas due to fetch error:", error?.message || error);
+    return DEFAULT_DELIVERY_AREAS;
   }
 };
 /**
@@ -264,6 +269,16 @@ export const seedFirestoreDefaults = async () => {
     const prizeRef = doc(db, "prizes", prize.id);
     await setDoc(prizeRef, {
       ...prize,
+      updatedAt: serverTimestamp(),
+    });
+  }
+
+  // 3. Seed default delivery areas
+  for (const area of DEFAULT_DELIVERY_AREAS) {
+    const villageRef = doc(db, "villages", area.id);
+    await setDoc(villageRef, {
+      name: area.name,
+      active: true,
       updatedAt: serverTimestamp(),
     });
   }

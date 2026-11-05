@@ -7,7 +7,7 @@ const fallbackReviews = [
   {
     id: "fallback-1",
     name: "Aman S.",
-    village: "Khankah",
+    village: "Mirza Hadi Pura",
     date: "2 days ago",
     rating: 5,
     text: "Absolutely the best fries and zinger burger in town! The fries were super crispy and the chicken was so juicy. Fast delivery too!",
@@ -15,16 +15,16 @@ const fallbackReviews = [
   {
     id: "fallback-2",
     name: "Rahul M.",
-    village: "Dewabindwal",
+    village: "Sahadatpura",
     date: "1 week ago",
     rating: 5,
     text: "Loved the Loaded Fries and Popcorn Chicken! The Spin & Win coupon worked flawlessly. Will definitely be ordering again for our next party.",
   },
   {
     id: "fallback-3",
-    name: "Mohd Tauseef",
-    village: "Bindwal",
-    date: "1 weeks ago",
+    name: "Mohd Anas",
+    village: "Domanpura",
+    date: "1 week ago",
     rating: 5,
     text: "Super hot when it arrived. The Chicken Biryani is aromatic with tender juicy chicken, and the fries are top notch. Highly recommend Sisterly Bites!",
   }

@@ -3143,6 +3143,62 @@ a {
   box-shadow: 0 0 0 3px rgba(25, 140, 9, 0.12);
 }
 
+/* Delivery Area Quick Chips in Order Modal */
+.quick-select-areas {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.quick-areas-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--sb-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.quick-areas-icon {
+  color: var(--sb-crimson);
+}
+
+.quick-areas-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.area-pill-btn {
+  background: var(--sb-surface);
+  border: 1px solid var(--sb-border);
+  color: var(--sb-dark);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  line-height: 1.2;
+}
+
+.area-pill-btn:hover {
+  background: rgba(168, 30, 44, 0.08);
+  border-color: var(--sb-crimson);
+  color: var(--sb-crimson);
+}
+
+.area-pill-btn.selected {
+  background: var(--sb-crimson);
+  border-color: var(--sb-crimson);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(168, 30, 44, 0.25);
+}
+
 .location-btn-row {
   display: flex;
   align-items: center;

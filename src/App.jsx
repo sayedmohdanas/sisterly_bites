@@ -13,6 +13,7 @@ import Footer from "./components/Footer";
 import FloatingWhatsAppCTA from "./components/FloatingWhatsAppCTA";
 import { spinWheelService } from "./services/spinService";
 import { fetchCampaignConfig, fetchPrizesFromFirestore, fetchVillagesFromFirestore, DEFAULT_PRIZES, DEFAULT_CAMPAIGN_CONFIG } from "./services/firebasePrizeService";
+import { DEFAULT_DELIVERY_AREAS } from "./data/deliveryAreas";
 import { trackEvent } from "./utils/analytics";
 
 export default function App() {
@@ -32,7 +33,7 @@ export default function App() {
 
   // Firebase integration state
   const [prizesList, setPrizesList] = useState(DEFAULT_PRIZES);
-  const [villagesList, setVillagesList] = useState([]);
+  const [villagesList, setVillagesList] = useState(DEFAULT_DELIVERY_AREAS);
   const [campaignConfig, setCampaignConfig] = useState(DEFAULT_CAMPAIGN_CONFIG);
   const [isLoadingCampaign, setIsLoadingCampaign] = useState(true);
 

@@ -5,6 +5,7 @@ import SpinButton from "./SpinButton";
 import { Sparkles, UtensilsCrossed, ShieldCheck, Heart, Clock, Award, ArrowDown, MapPin } from "lucide-react";
 import { config } from "../config/config";
 import { trackEvent } from "../utils/analytics";
+import { DEFAULT_DELIVERY_AREAS } from "../data/deliveryAreas";
 
 export default function Hero({
   userName,
@@ -84,20 +85,18 @@ export default function Hero({
           <div className="hero-locations-wrapper">
             <div className="hero-locations-label">
               <MapPin size={16} className="hero-location-pin-icon" />
-              <span>Delivery Available In:</span>
+              <span>Delivery Available In Mau:</span>
             </div>
             <div className="hero-location-chips">
-              {villagesList.length > 0 ? villagesList.map(v => (
-                <span key={v.id} className="hero-location-chip">
-                  <MapPin size={12} className="chip-pin" /> {v.name}
-                </span>
-              )) : (
-                <>
-                  <span className="hero-location-chip"><MapPin size={12} className="chip-pin" /> Khankah</span>
-                  <span className="hero-location-chip"><MapPin size={12} className="chip-pin" /> Bindwal</span>
-                  <span className="hero-location-chip"><MapPin size={12} className="chip-pin" /> Dewabindwal</span>
-                </>
-              )}
+              {(villagesList && villagesList.length > 0 ? villagesList : DEFAULT_DELIVERY_AREAS).map((v) => {
+                const name = typeof v === "string" ? v : v.name;
+                const key = typeof v === "string" ? v : (v.id || v.name);
+                return (
+                  <span key={key} className="hero-location-chip">
+                    <MapPin size={12} className="chip-pin" /> {name}
+                  </span>
+                );
+              })}
             </div>
           </div>
 
@@ -108,7 +107,7 @@ export default function Hero({
               className="hero-highlighted-menu-btn"
               onClick={handleScrollToMenu}
             >
-              <span>🍕 VIEW OUR MENU</span>
+              <span>🍔 VIEW OUR MENU</span>
               <ArrowDown size={18} className="arrow-bounce-icon" />
             </button>
           </div>

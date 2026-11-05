@@ -140,24 +140,48 @@ To change selection probability directly from Firebase Console:
 
 ---
 
-## 8. Current Security Model & Firestore Rules
+## 8. Delivery Areas (`villages` collection)
 
-Recommended Firestore Security Rules for client-side read access and controlled spin creation:
+The cloud kitchen delivers across the following 10 areas in Mau:
+
+| # | Area / Locality | Document ID | Active |
+|---|---|---|---|
+| 1 | **Mirza Hadi Pura** | `mirza-hadi-pura` | `true` |
+| 2 | **Astupura** | `astupura` | `true` |
+| 3 | **Domanpura** | `domanpura` | `true` |
+| 4 | **Keyari Tola** | `keyari-tola` | `true` |
+| 5 | **Malik Tahir Pura** | `malik-tahir-pura` | `true` |
+| 6 | **Munshi Pura** | `munshi-pura` | `true` |
+| 7 | **Sahadatpura** | `sahadatpura` | `true` |
+| 8 | **Bulaki Pura** | `bulaki-pura` | `true` |
+| 9 | **Chitanpura Bagh** | `chitanpura-bagh` | `true` |
+| 10 | **Mirzahadipura Chowk** | `mirzahadipura-chowk` | `true` |
+
+---
+
+## 9. Current Security Model & Firestore Rules
+
+Recommended Firestore Security Rules for client-side read access and controlled spin/review creation:
 
 ```javascript
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // Public read-only access for campaign config and prize definitions
+    // Public read-only access for campaign config, prize definitions, and delivery areas
     match /campaigns/{campaignId} {
       allow read: if true;
-      allow write: if false; // Admin console / Admin SDK only
+      allow write: if false; // Admin only
     }
 
     match /prizes/{prizeId} {
       allow read: if true;
-      allow write: if false; // Admin console / Admin SDK only
+      allow write: if false; // Admin only
+    }
+
+    match /villages/{villageId} {
+      allow read: if true;
+      allow write: if false; // Admin only
     }
 
     // Public create access for user spin records
@@ -167,13 +191,27 @@ service cloud.firestore {
                     && request.resource.data.mobile is string;
       allow update, delete: if false;
     }
+
+    // Public reviews access
+    match /reviews/{reviewId} {
+      allow read: if true;
+      allow create: if request.resource.data.keys().hasAll(['name', 'rating', 'text', 'createdAt'])
+                    && request.resource.data.rating >= 1 && request.resource.data.rating <= 5;
+      allow update, delete: if false;
+    }
+
+    // Orders collection (logged when customer places WhatsApp order)
+    match /orders/{orderId} {
+      allow create: if true;
+      allow read, update, delete: if false;
+    }
   }
 }
 ```
 
 ---
 
-## 9. Vercel Deployment Guide
+## 10. Vercel Deployment Guide
 
 When deploying to Vercel:
 
