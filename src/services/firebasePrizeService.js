@@ -126,7 +126,7 @@ export const fetchPrizesFromFirestore = async () => {
         enabled: data.enabled !== false,
         couponPrefix: data.couponPrefix !== undefined ? data.couponPrefix : (localMatch.couponPrefix !== undefined ? localMatch.couponPrefix : "SB"),
         isWinningPrize: data.isWinning !== undefined ? Boolean(data.isWinning) : (localMatch.isWinningPrize !== undefined ? Boolean(localMatch.isWinningPrize) : Boolean(data.isWinningPrize)),
-        bgColor: data.bgColor || localMatch.bgColor || "#E63946",
+        bgColor: data.bgColor || localMatch.bgColor || "#FF991C",
         textColor: data.textColor || localMatch.textColor || "#FFFFFF",
         badge: data.badge || localMatch.badge || "OFFER",
         accentColor: data.accentColor || localMatch.accentColor || "#FFD700",

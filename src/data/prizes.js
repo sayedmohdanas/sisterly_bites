@@ -46,7 +46,7 @@ const prizes = [
     bgColor: "#FFB703", // Golden Yellow
     textColor: "#42210B",
     badge: "BONUS",
-    accentColor: "#E63946"
+    accentColor: "#FF991C"
   },
   {
     id: "better-luck",
@@ -94,7 +94,7 @@ const prizes = [
     bgColor: "#F4A261", // Sunset Orange
     textColor: "#42210B",
     badge: "YUMMY",
-    accentColor: "#E63946"
+    accentColor: "#FF991C"
   },
   {
     id: "free-campa-10",

@@ -7,7 +7,7 @@ export default function WhySisterlyBites() {
       icon: UtensilsCrossed,
       title: "🍟 Homemade Goodness",
       description: "Authentic homemade recipes prepared fresh with high-grade spices and care in every single bite.",
-      color: "#E63946",
+      color: "#FF991C",
     },
     {
       icon: Bike,

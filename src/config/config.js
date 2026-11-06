@@ -11,5 +11,5 @@ export const config = {
   supportPhone: "+91 9026068859",
   supportEmail: "sisterlybites@gmail.com",
 
-  primaryColor: "#E63946",
+  primaryColor: "#FF991C",
 };
