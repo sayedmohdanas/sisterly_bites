@@ -28,7 +28,7 @@ const prizes = [
     isWinningPrize: true,
     couponPrefix: "SB10",
     bgColor: "#FF9F1C", // Warm Amber
-    textColor: "#1E293B",
+    textColor: "#42210B",
     badge: "SAVINGS",
     accentColor: "#FFFFFF"
   },
@@ -44,7 +44,7 @@ const prizes = [
     isWinningPrize: true,
     couponPrefix: "SB20",
     bgColor: "#FFB703", // Golden Yellow
-    textColor: "#1E293B",
+    textColor: "#42210B",
     badge: "BONUS",
     accentColor: "#E63946"
   },
@@ -59,10 +59,10 @@ const prizes = [
     enabled: true,
     isWinningPrize: false,
     couponPrefix: null,
-    bgColor: "#334155", // Charcoal Slate
-    textColor: "#F8FAFC",
+    bgColor: "#4A2411", // Deep Warm Cocoa
+    textColor: "#FFF8F0",
     badge: "TRY AGAIN",
-    accentColor: "#94A3B8"
+    accentColor: "#FFB703"
   },
   {
     id: "15-off",
@@ -75,7 +75,7 @@ const prizes = [
     enabled: true,
     isWinningPrize: true,
     couponPrefix: "SB15",
-    bgColor: "#2A9D8F", // Fresh Teal
+    bgColor: "#D81159", // Berry Rose Pink
     textColor: "#FFFFFF",
     badge: "BIG DEAL",
     accentColor: "#FFD700"
@@ -92,7 +92,7 @@ const prizes = [
     isWinningPrize: true,
     couponPrefix: "SB30",
     bgColor: "#F4A261", // Sunset Orange
-    textColor: "#1E293B",
+    textColor: "#42210B",
     badge: "YUMMY",
     accentColor: "#E63946"
   },

@@ -191,14 +191,14 @@ export default function ResultModal({
                   🎟️ YOU ALREADY HAVE A COUPON!
                 </h2>
 
-                <p className="modal-subtext" style={{ fontSize: "16px", fontWeight: "700", color: "#1E293B", marginBottom: "14px" }}>
+                <p className="modal-subtext" style={{ fontSize: "16px", fontWeight: "700", color: "#42210B", marginBottom: "14px" }}>
                   Hi {existingCoupon.name || displayName || "there"}! 👋
                 </p>
 
                 {/* Prize Highlight Box for Existing Coupon */}
                 <div className="prize-result-box" style={{ borderColor: "#FFB703", background: "rgba(255, 183, 3, 0.05)" }}>
                   <div className="prize-icon-bubble" style={{ backgroundColor: "#FFB703" }}>
-                    <Gift size={28} color="#1E293B" />
+                    <Gift size={28} color="#42210B" />
                   </div>
                   <div className="prize-box-details">
                     <span className="prize-box-sub" style={{ textTransform: "uppercase", fontSize: "11px", letterSpacing: "0.5px" }}>Your existing coupon:</span>
@@ -216,7 +216,7 @@ export default function ResultModal({
                         type="button"
                         className={`copy-code-btn ${copiedExisting ? "copied-state" : ""}`}
                         onClick={handleCopyExistingCode}
-                        style={{ backgroundColor: "#FFB703", color: "#1E293B" }}
+                        style={{ backgroundColor: "#FFB703", color: "#42210B" }}
                       >
                         {copiedExisting ? (
                           <>
@@ -288,7 +288,7 @@ export default function ResultModal({
                 </h2>
                 
                 {displayName && (
-                  <p className="modal-subtext" style={{ fontSize: "16px", fontWeight: "700", color: "#1E293B", marginBottom: "14px" }}>
+                  <p className="modal-subtext" style={{ fontSize: "16px", fontWeight: "700", color: "#42210B", marginBottom: "14px" }}>
                     Hi {displayName}! 🎉
                   </p>
                 )}
@@ -406,7 +406,7 @@ export default function ResultModal({
               😔 Better Luck Next Time
             </h2>
             {displayName && (
-              <p className="modal-subtext" style={{ fontSize: "16px", fontWeight: "700", color: "#1E293B", marginBottom: "8px" }}>
+              <p className="modal-subtext" style={{ fontSize: "16px", fontWeight: "700", color: "#42210B", marginBottom: "8px" }}>
                 Hi {displayName}! 🍟
               </p>
             )}

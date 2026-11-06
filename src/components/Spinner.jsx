@@ -198,7 +198,7 @@ export default function Spinner({
                   {/* Sector Path */}
                   <path
                     d={getSlicePath(idx, numSegments)}
-                    fill={prize.bgColor || "#198C09"}
+                    fill={prize.bgColor || "#E6324B"}
                     stroke="#FFFFFF"
                     strokeWidth="2.5"
                   />
