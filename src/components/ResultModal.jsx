@@ -181,7 +181,7 @@ export default function ResultModal({
               /* EXISTING COUPON RECOVERY STATE */
               <div className="existing-coupon-section">
                 <div className="modal-badge-row">
-                  <span className="congrats-chip" style={{ background: "rgba(255, 183, 3, 0.15)", color: "#B45309" }}>
+                  <span className="congrats-chip" style={{ background: "rgba(255, 153, 28, 0.15)", color: "#B45309" }}>
                     <Ticket size={16} />
                     <span>ACTIVE COUPON RECOVERED</span>
                   </span>
@@ -196,8 +196,8 @@ export default function ResultModal({
                 </p>
 
                 {/* Prize Highlight Box for Existing Coupon */}
-                <div className="prize-result-box" style={{ borderColor: "#FFB703", background: "rgba(255, 183, 3, 0.05)" }}>
-                  <div className="prize-icon-bubble" style={{ backgroundColor: "#FFB703" }}>
+                <div className="prize-result-box" style={{ borderColor: "#FF991C", background: "rgba(255, 153, 28, 0.05)" }}>
+                  <div className="prize-icon-bubble" style={{ backgroundColor: "#FF991C" }}>
                     <Gift size={28} color="#42210B" />
                   </div>
                   <div className="prize-box-details">
@@ -210,13 +210,13 @@ export default function ResultModal({
                 {existingCoupon.couponCode && (
                   <div className="coupon-code-container">
                     <span className="coupon-label-text">YOUR COUPON CODE</span>
-                    <div className="coupon-code-box" style={{ borderColor: "#FFB703" }}>
+                    <div className="coupon-code-box" style={{ borderColor: "#FF991C" }}>
                       <span className="code-text" style={{ color: "#B45309" }}>{existingCoupon.couponCode}</span>
                       <button
                         type="button"
                         className={`copy-code-btn ${copiedExisting ? "copied-state" : ""}`}
                         onClick={handleCopyExistingCode}
-                        style={{ backgroundColor: "#FFB703", color: "#42210B" }}
+                        style={{ backgroundColor: "#FF991C", color: "#42210B" }}
                       >
                         {copiedExisting ? (
                           <>

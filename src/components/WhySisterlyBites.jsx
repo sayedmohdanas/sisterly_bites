@@ -13,7 +13,7 @@ export default function WhySisterlyBites() {
       icon: Bike,
       title: "🚴 Fast Delivery",
       description: "Piping hot delivery straight from our cloud kitchen to your doorstep without delay.",
-      color: "#FF9F1C",
+      color: "#FF991C",
     },
     {
       icon: Sparkles,

@@ -27,7 +27,7 @@ const prizes = [
     enabled: true,
     isWinningPrize: true,
     couponPrefix: "SB10",
-    bgColor: "#FF9F1C", // Warm Amber
+    bgColor: "#FF991C", // Warm Golden Amber
     textColor: "#42210B",
     badge: "SAVINGS",
     accentColor: "#FFFFFF"
@@ -62,7 +62,7 @@ const prizes = [
     bgColor: "#4A2411", // Deep Warm Cocoa
     textColor: "#FFF8F0",
     badge: "TRY AGAIN",
-    accentColor: "#FFB703"
+    accentColor: "#FF991C"
   },
   {
     id: "15-off",
